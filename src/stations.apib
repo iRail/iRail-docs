@@ -1,0 +1,62 @@
+# Group Stations
+
+Retrieve information about a station.
+Alternatively, you can check out our repo at https://github.com/iRail/stations for a CSV of all stations, and nodejs scripts to convert this CSV to other formats.
+
+## Stations API [/stations/?format={format}&lang={lang}]
+
++ Parameters
+
+    <!-- include(fragments/parameters_format.apib) -->
+
+    <!-- include(fragments/parameters_lang.apib) -->
+
+### Retrieve all stations [GET]
+
++ Request Json
+    
+    + Body
+
+            ?format=json
+
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Access-Control-Allow-Origin:"*"
+
+    + Body
+
+            {
+                "version": "1.1",
+                "timestamp": "1489621486",
+                "station": [
+                    {
+                        "id": "BE.NMBS.007015400",
+                        "locationX": "-0.1260606",
+                        "locationY": "51.5310399",
+                        "@id": "http://irail.be/stations/NMBS/007015400",
+                        "standardname": "London Saint Pancras International",
+                        "name": "London Saint Pancras International"
+                    }
+                ]
+            }
+
++ Request XML
+    
+    + Body
+
+            ?format=xml
+
++ Response 200 (text/xml)
+
+    + Headers
+
+            Access-Control-Allow-Origin:"*"
+
+    + Body
+
+            <stations version="1.1" timestamp="1489621390">
+               <station id="BE.NMBS.007015400" locationX="-0.1260606" locationY="51.5310399" URI="http://irail.be/stations/NMBS/007015400" standardname="London Saint Pancras International">London Saint Pancras International</station>
+            </stations>
