@@ -10,17 +10,17 @@ A liveboard for a specified station
 
 + Parameters
     
-    + station: `Gent-Sint-Pieters` (string, required) - The name of the station to query
+    + station: `Gent-Sint-Pieters` (string, required) - The name of the station to query.
 
-    + id: (string, optional) - If you know the id of a station, this might be used instead of a name. **Do not** use an id and a name at the same time. An example would be BE.NMBS.008892007.
+    + id: `BE.NMBS.008892007` (string, optional) - If you know the id of a station, this might be used instead of a name. **Do not** use an id and a name at the same time.
 
-    + arrdep: `departure` (enum[string], optional) - Whether the results should show arrivals departures in the station
+    + arrdep: `departure` (enum[string], optional) - Whether the results should show arrivals departures in the station.
         + Default: departure
-        + Options
+        + Members
             + departure
             + arrival
     
-    + fast: `false` (boolean, optional) - Whether or not you want stations in the result to be matched with an id and name according to iRail/Stations
+    + fast: `false` (boolean, optional) - Whether or not you want stations in the result to be matched with an id and name according to iRail/Stations.
     By enabling the fast feature, there won't be any matching between station names returned by the NMBS and our database. This means there might be differences between the station name in the response and any station name your software knows. Fast is disabled by default, to ensure all stations in the response are matched with an id and a consistent name.
         + Default: false
 
@@ -33,12 +33,11 @@ A liveboard for a specified station
     <!-- include(fragments/parameters_lang.apib) -->
 
 
-+ Response
-
-    + station: The station which was queried
-    + stationinfo: Specific information about the queried station. Only available when fast=false. Includes coordinates, name, and id.
-
 + Request Json
+    
+    + Body
+
+            ?station=Gent-Sint-Pieters&format=json
 
 
 + Response 200 (application/json)
@@ -101,6 +100,10 @@ A liveboard for a specified station
             }
 
 + Request XML
+    
+    + Body
+
+            ?station=Gent-Sint-Pieters&format=xml
 
 + Response 200 (text/xml)
 
