@@ -1,0 +1,112 @@
+# Group Vehicle
+
+Retrieve information about a vehicle.
+
+## Vehicle API [/vehicle/{?id,fast,format,lang}]
+
++ Parameters
+
+    + id: `BE.NMBS.IC1832` (string, required): The id of the vehicle to query. The identifier 'BE.NMBS.' can be left out, but is encouraged to ensure your application is future-proof.
+
+    <!-- include(fragments/parameters_format.apib) -->
+
+    <!-- include(fragments/parameters_lang.apib) -->
+
+    <!-- include(fragments/parameters_fast.apib) -->
+
+### Retrieve all vehicles [GET]
+
++ Request Json
+    
+    + Body
+
+            ?vehicle=BE.NMBS.IC1832&format=json
+
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Access-Control-Allow-Origin:"*"
+
+    + Body
+
+            {
+
+                "version": "1.1",
+                "timestamp": "1489621902",
+                "vehicle": "IC1832",
+                "vehicleinfo": {
+                    "locationX": "4.421101",
+                    "locationY": "51.2172",
+                    "name": "IC1832"
+                },
+                "stops": {
+                    "number": "10",
+                    "stop": [
+                        {
+                            "id": "0",
+                            "station": "Antwerp-Central",
+                            "stationinfo": {
+                                "id": "BE.NMBS.008821006",
+                                "locationX": "4.421101",
+                                "locationY": "51.2172",
+                                "@id": "http://irail.be/stations/NMBS/008821006",
+                                "name": "Antwerp-Central",
+                                "standardname": "Antwerpen-Centraal"
+                            },
+                            "time": "1489658760",
+                            "delay": "0",
+                            "platform": "1",
+                            "platforminfo": {
+                                "name": "1",
+                                "normal": "1"
+                            },
+                            "canceled": "0",
+                            "departureDelay": "0",
+                            "departureCanceled": "0",
+                            "scheduledDepartureTime": "1489658760",
+                            "scheduledArrivalTime": "1489658760",
+                            "arrivalDelay": "0",
+                            "arrivalCanceled": "0",
+                            "departureConnection": "http://irail.be/connections/8821006/20170316/IC1832",
+                            "occupancy": {
+                                "@id": "http://api.irail.be/terms/unknown",
+                                "name": "unknown"
+                            }
+                        }
+                    ]            
+                }
+            }
+
++ Request XML
+    
+    + Body
+
+            ?vehicle=BE.NMBS.IC1832&format=xml
+
++ Response 200 (text/xml)
+
+    + Headers
+
+            Access-Control-Allow-Origin:"*"
+
+    + Body
+
+            <vehicleinformation version="1.1" timestamp="1489622066">
+                <vehicle locationX="4.421101" locationY="51.2172">IC1832</vehicle>
+                <stops number="10">
+                    <stop id="0" delay="0" canceled="0">
+                    <station id="BE.NMBS.008821006" locationX="4.421101" locationY="51.2172" URI="http://irail.be/stations/NMBS/008821006" standardname="Antwerpen-Centraal">Antwerp-Central</station>
+                    <time formatted="2017-03-16T11:06:00">1489658760</time>
+                    <platform normal="1">1</platform>
+                    <departureDelay>0</departureDelay>
+                    <departureCanceled>0</departureCanceled>
+                    <scheduledDepartureTime formatted="2017-03-16T11:06:00">1489658760</scheduledDepartureTime>
+                    <scheduledArrivalTime formatted="2017-03-16T11:06:00">1489658760</scheduledArrivalTime>
+                    <arrivalDelay>0</arrivalDelay>
+                    <arrivalCanceled>0</arrivalCanceled>
+                    <departureConnection>http://irail.be/connections/8821006/20170316/IC1832</departureConnection>
+                    <occupancy URI="http://api.irail.be/terms/unknown">unknown</occupancy>
+                </stop>
+            </vehicleinformation>    
