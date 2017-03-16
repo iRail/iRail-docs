@@ -1,0 +1,54 @@
+## VehicleInformation (object)
+
++ version: `1.1` (string)
++ timestamp: 1489621902 (number)
++ vehicle: IC1832 (string, required)
++ vehicleinfo (Vehicle)
++ stops (object)
+    + number: 10 (number, required)
+    + stop (array[Stop])
+
+
+## Vehicle (object)
+
++ name: IC1832 (string, required)
++ locationX: `4.421101` (number, required)
++ locationY: `51.2172` (number, required)
+
+
+## Stop (object)
++ id: 0 (number, required) - The index of this stop in an array of stops
++ station: `Antwerp-central` (string, required) - The name of this station as returned by the nmbs
++ stationinfo (Station, optional)
++ time: 1489658760 (number, required) - The unix timestamp, expressed as seconds since January 1st 1970
++ delay: 0 (number, required) - //TODO: document (which delay is this exactly)
++ platform: 1 (number, required) - The platform from which this train will depart
++ platforminfo (PlatformInfo, required)
++ canceled: 0 (number, required) - Whether or not this train has been cancelled
++ departureDelay: 0 (number, required) - The departure delay, in seconds
++ departureCanceled: 0 (number, required) - Whether or not this departure has been cancelled
++ scheduledDepartureTime: 1489658760 (number, required) - The unix timestamp, expressed as seconds since January 1st 1970
++ arrivalDelay: 0 (number, required)
++ arrivalCanceled: 0 (number, required)
++ scheduledArrivalTime: 1489658760 (number, required) - The unix timestamp, expressed as seconds since January 1st 1970
++ departureConnection: `http://irail.be/connections/8821006/20170316/IC1832` (string, required) - //TODO: document
++ occupancy (Occupancy, optional)
+
+## Station (object)
+
++ id: BE.NMBS.008821006 (string, required) - The (iRail) id of the station. The NMBS id can be deducted by removing the leading 'BE.NMBS.00'
++ @id: `http://irail.be/stations/NMBS/008821006` (string, required)
++ locationX: `4.421101` (number, required) - The coordinates of the station //TODO: lat/lon?
++ locationY: `51.2172` (number, required) - The coordinates of the station //TODO: lat/lon?
++ standardname: `Antwerpen-Centraal`(string, required) - The consistent name of this station
++ name: `Antwerp-Central` (string, required) - The default name of this station
+
+## PlatformInfo (object)
+
++ name: 1 (string, required) - The platform name. **Warning** Do not treat this as a number. This value can also be '1B' for example, or '?' when unknown.
++ normal: 1 (string, required) - Wether or not this is the normal platform. If 0, a platform change has happened in real time.
+
+## Occupancy (object)
+
++  @id: `http://api.irail.be/terms/unknown` (string, required) - The linked-data id of this term
++  name: `unknown` (string, required) - The occupancy //TODO: enum values
