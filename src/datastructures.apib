@@ -82,3 +82,46 @@
 + name: `BE.NMBS.IC3033` (string, required)
 + @id:  `http://irail.be/vehicle/IC3033` (string, required)
 
+## StationResponse (object)
+
++ version: `1.1` (string, required)
++ timestamp: 1489621486 (number, required)
++ station (Station, required)
+
+## ConnectionResponse (object)
++ version: `1.1` (string, required)
++ timestamp: 1489622781 (number, required)
++ connection (array[Connection], required)
+
+## Connection (object)
++ id: 0 (number, required)
++ departure (ConnectionDeparture)
++ arrival (ConnectionArrival)
+
+## ConnectionDeparture (object)
+
++ station: `Antwerp-Central` (string, required)
++ stationinfo (Station, optional)
++ time: 1497783600 (number, required) - The unix timestamp, expressed as seconds since January 1st 1970
++ vehicle: `BE.NMBS.IC3033` (string, required)
++ vehicleinfo (VehicleInfo, required)
++ platform: 4 (number, required) - The platform from which this train will depart
++ platforminfo (PlatformInfo, required)
++ canceled: 0 (number, required) - Whether or not this train has been cancelled
++ direction (object, required)
+    + name : `Mechelen` (string, required)
++ departureConnection: `http://irail.be/connections/8821006/20170316/IC1832` (string, required) - //TODO: document
+
+## ConnectionArrival (object)
+
++ delay: 0 (number, required)
++ station: `Antwerp-Central` (string, required)
++ stationinfo (Station, optional)
++ time: 1497786840 (number, required) - The unix timestamp, expressed as seconds since January 1st 1970
++ vehicle: `BE.NMBS.IC3033` (string, required)
++ vehicleinfo (VehicleInfo, required)
++ platform: 4 (number, required) - The platform from which this train will depart
++ platforminfo (PlatformInfo, required)
++ canceled: 0 (number, required) - Whether or not this train has been cancelled
++ direction (object, required)
+    + name : `Mechelen` (string, required)
