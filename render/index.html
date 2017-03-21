@@ -23,52 +23,122 @@ Alternatively, you can check out our repo at <a href="https://github.com/iRail/s
 <p class="choices"><strong>Choices:&nbsp;</strong><code>nl</code> <code>fr</code> <code>en</code> <code>de</code> </p></dd></dl></div></div></div><hr class="split"><div class="middle"><section id="liveboard" class="resource-group"><h2 class="group-heading">Liveboard <a href="#liveboard" class="permalink">&para;</a></h2><p>Liveboards provides real-time informations on arriving and departing trains for every Belgian station.</p>
 </section></div><div class="middle"><div id="liveboard-liveboard-api" class="resource"><h3 class="resource-heading">Liveboard API <a href="#liveboard-liveboard-api" class="permalink">&para;</a></h3></div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/liveboard/?<span class="hljs-attribute">id=</span><span class="hljs-literal">BE.NMBS.008892007</span>&<span class="hljs-attribute">station=</span><span class="hljs-literal">Gent-Sint-Pieters</span>&<span class="hljs-attribute">date=</span><span class="hljs-literal">31122016</span>&<span class="hljs-attribute">time=</span><span class="hljs-literal">1230</span>&<span class="hljs-attribute">arrdep=</span><span class="hljs-literal">departure</span>&<span class="hljs-attribute">lang=</span><span class="hljs-literal">en</span>&<span class="hljs-attribute">format=</span><span class="hljs-literal">json</span>&<span class="hljs-attribute">fast=</span><span class="hljs-literal">false</span></span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">Json</span><span class="tab-button">XML</span></div><div class="tab"><div><div class="inner"><h5>Body</h5><pre><code>?station=Gent-Sint-Pieters&amp;format=json</code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Access-Control-Allow-Origin</span>: <span class="hljs-string">"*"</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-string">"1.1"</span></span>,
-  "<span class="hljs-attribute">timestamp</span>": <span class="hljs-value"><span class="hljs-string">"1489614297"</span></span>,
+  "<span class="hljs-attribute">timestamp</span>": <span class="hljs-value"><span class="hljs-number">1489614297</span></span>,
   "<span class="hljs-attribute">station</span>": <span class="hljs-value"><span class="hljs-string">"Ghent-Sint-Pieters"</span></span>,
   "<span class="hljs-attribute">stationinfo</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"BE.NMBS.008892007"</span></span>,
-    "<span class="hljs-attribute">locationX</span>": <span class="hljs-value"><span class="hljs-string">"3.710675"</span></span>,
-    "<span class="hljs-attribute">locationY</span>": <span class="hljs-value"><span class="hljs-string">"51.035896"</span></span>,
-    "<span class="hljs-attribute">@id</span>": <span class="hljs-value"><span class="hljs-string">"http://irail.be/stations/NMBS/008892007"</span></span>,
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Ghent-Sint-Pieters"</span></span>,
-    "<span class="hljs-attribute">standardname</span>": <span class="hljs-value"><span class="hljs-string">"Gent-Sint-Pieters"</span>
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"BE.NMBS.008821006"</span></span>,
+    "<span class="hljs-attribute">@id</span>": <span class="hljs-value"><span class="hljs-string">"http://irail.be/stations/NMBS/008821006"</span></span>,
+    "<span class="hljs-attribute">locationX</span>": <span class="hljs-value"><span class="hljs-number">4.421101</span></span>,
+    "<span class="hljs-attribute">locationY</span>": <span class="hljs-value"><span class="hljs-number">51.2172</span></span>,
+    "<span class="hljs-attribute">standardname</span>": <span class="hljs-value"><span class="hljs-string">"Antwerpen-Centraal"</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Antwerp-Central"</span>
   </span>}</span>,
   "<span class="hljs-attribute">departures</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">number</span>": <span class="hljs-value"><span class="hljs-string">"32"</span></span>,
+    "<span class="hljs-attribute">number</span>": <span class="hljs-value"><span class="hljs-number">32</span></span>,
     "<span class="hljs-attribute">departure</span>": <span class="hljs-value">[
       {
-        "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
-        "<span class="hljs-attribute">delay</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
-        "<span class="hljs-attribute">station</span>": <span class="hljs-value"><span class="hljs-string">"Ronse"</span></span>,
+        "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">delay</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">station</span>": <span class="hljs-value"><span class="hljs-string">"Antwerp-Central"</span></span>,
         "<span class="hljs-attribute">stationinfo</span>": <span class="hljs-value">{
-          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"BE.NMBS.008892908"</span></span>,
-          "<span class="hljs-attribute">locationX</span>": <span class="hljs-value"><span class="hljs-string">"3.602552"</span></span>,
-          "<span class="hljs-attribute">locationY</span>": <span class="hljs-value"><span class="hljs-string">"50.742506"</span></span>,
-          "<span class="hljs-attribute">@id</span>": <span class="hljs-value"><span class="hljs-string">"http://irail.be/stations/NMBS/008892908"</span></span>,
-          "<span class="hljs-attribute">standardname</span>": <span class="hljs-value"><span class="hljs-string">"Ronse"</span></span>,
-          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Ronse"</span>
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-string">"BE.NMBS.008821006"</span></span>,
+          "<span class="hljs-attribute">@id</span>": <span class="hljs-value"><span class="hljs-string">"http://irail.be/stations/NMBS/008821006"</span></span>,
+          "<span class="hljs-attribute">locationX</span>": <span class="hljs-value"><span class="hljs-number">4.421101</span></span>,
+          "<span class="hljs-attribute">locationY</span>": <span class="hljs-value"><span class="hljs-number">51.2172</span></span>,
+          "<span class="hljs-attribute">standardname</span>": <span class="hljs-value"><span class="hljs-string">"Antwerpen-Centraal"</span></span>,
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Antwerp-Central"</span>
         </span>}</span>,
-        "<span class="hljs-attribute">time</span>": <span class="hljs-value"><span class="hljs-string">"1489575600"</span></span>,
-        "<span class="hljs-attribute">vehicle</span>": <span class="hljs-value"><span class="hljs-string">"BE.NMBS.L782"</span></span>,
+        "<span class="hljs-attribute">time</span>": <span class="hljs-value"><span class="hljs-number">1489575600</span></span>,
+        "<span class="hljs-attribute">vehicle</span>": <span class="hljs-value"><span class="hljs-string">"BE.NMBS.IC3033"</span></span>,
         "<span class="hljs-attribute">vehicleinfo</span>": <span class="hljs-value">{
-          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"BE.NMBS.L782"</span></span>,
-          "<span class="hljs-attribute">@id</span>": <span class="hljs-value"><span class="hljs-string">"http://irail.be/vehicle/L782"</span>
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"BE.NMBS.IC3033"</span></span>,
+          "<span class="hljs-attribute">@id</span>": <span class="hljs-value"><span class="hljs-string">"http://irail.be/vehicle/IC3033"</span>
         </span>}</span>,
-        "<span class="hljs-attribute">platform</span>": <span class="hljs-value"><span class="hljs-string">"4"</span></span>,
+        "<span class="hljs-attribute">platform</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
         "<span class="hljs-attribute">platforminfo</span>": <span class="hljs-value">{
           "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"4"</span></span>,
           "<span class="hljs-attribute">normal</span>": <span class="hljs-value"><span class="hljs-string">"1"</span>
         </span>}</span>,
-        "<span class="hljs-attribute">canceled</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
-        "<span class="hljs-attribute">left</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
-        "<span class="hljs-attribute">departureConnection</span>": <span class="hljs-value"><span class="hljs-string">"http://irail.be/connections/8892007/20170315/L782"</span></span>,
+        "<span class="hljs-attribute">canceled</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">left</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+        "<span class="hljs-attribute">departureConnection</span>": <span class="hljs-value"><span class="hljs-string">"http://irail.be/connections/8821006/20170316/IC1832"</span></span>,
         "<span class="hljs-attribute">occupancy</span>": <span class="hljs-value">{
-          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"unknown"</span></span>,
-          "<span class="hljs-attribute">@id</span>": <span class="hljs-value"><span class="hljs-string">"http://api.irail.be/terms/unknown"</span>
+          "<span class="hljs-attribute">@id</span>": <span class="hljs-value"><span class="hljs-string">"http://api.irail.be/terms/unknown"</span></span>,
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"unknown"</span>
         </span>}
       </span>}
     ]
   </span>}
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema#"</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">version</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">timestamp</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">station</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">stationinfo</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+      "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">id</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+          "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"The (iRail) id of the station. The NMBS id can be deducted by removing the leading 'BE.NMBS.00'"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">@id</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">locationX</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
+          "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"The coordinates of the station //TODO: lat/lon?"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">locationY</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span></span>,
+          "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"The coordinates of the station //TODO: lat/lon?"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">standardname</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+          "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"The consistent name of this station"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">name</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+          "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"The default name of this station"</span>
+        </span>}
+      </span>}</span>,
+      "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+        <span class="hljs-string">"id"</span>,
+        <span class="hljs-string">"@id"</span>,
+        <span class="hljs-string">"locationX"</span>,
+        <span class="hljs-string">"locationY"</span>,
+        <span class="hljs-string">"standardname"</span>,
+        <span class="hljs-string">"name"</span>
+      ]
+    </span>}</span>,
+    "<span class="hljs-attribute">departures</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+      "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+        "<span class="hljs-attribute">number</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">departure</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+        </span>}
+      </span>}</span>,
+      "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+        <span class="hljs-string">"number"</span>
+      ]
+    </span>}
+  </span>}</span>,
+  "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
+    <span class="hljs-string">"version"</span>,
+    <span class="hljs-string">"timestamp"</span>,
+    <span class="hljs-string">"station"</span>,
+    <span class="hljs-string">"departures"</span>
+  ]
 </span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></div><div class="tab"><div><div class="inner"><h5>Body</h5><pre><code>?station=Gent-Sint-Pieters&amp;format=xml</code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">text/xml</span><br><span class="hljs-attribute">Access-Control-Allow-Origin</span>: <span class="hljs-string">"*"</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code><span class="hljs-tag">&lt;<span class="hljs-title">liveboard</span> <span class="hljs-attribute">version</span>=<span class="hljs-value">"1.1"</span> <span class="hljs-attribute">timestamp</span>=<span class="hljs-value">"1489614530"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">station</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"BE.NMBS.008892007"</span> <span class="hljs-attribute">locationX</span>=<span class="hljs-value">"3.710675"</span> <span class="hljs-attribute">locationY</span>=<span class="hljs-value">"51.035896"</span> <span class="hljs-attribute">URI</span>=<span class="hljs-value">"http://irail.be/stations/NMBS/008892007"</span> <span class="hljs-attribute">standardname</span>=<span class="hljs-value">"Gent-Sint-Pieters"</span>&gt;</span>Ghent-Sint-Pieters<span class="hljs-tag">&lt;/    <span class="hljs-attribute">station</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">departures</span> <span class="hljs-attribute">number</span>=<span class="hljs-value">"32"</span>&gt;</span>
@@ -315,9 +385,9 @@ By enabling the fast feature, there won’t be any matching between station name
 </section></div><div class="middle"><div id="vehicle-vehicle-api" class="resource"><h3 class="resource-heading">Vehicle API <a href="#vehicle-vehicle-api" class="permalink">&para;</a></h3></div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/vehicle/?<span class="hljs-attribute">id=</span><span class="hljs-literal">BE.NMBS.IC1832</span>&<span class="hljs-attribute">fast=</span><span class="hljs-literal">false</span>&<span class="hljs-attribute">format=</span><span class="hljs-literal">json</span>&<span class="hljs-attribute">lang=</span><span class="hljs-literal">en</span></span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">Json</span><span class="tab-button">XML</span></div><div class="tab"><div><div class="inner"><h5>Body</h5><pre><code>?vehicle=BE.NMBS.IC1832&amp;format=json</code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Access-Control-Allow-Origin</span>: <span class="hljs-string">"*"</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-string">"1.1"</span></span>,
   "<span class="hljs-attribute">timestamp</span>": <span class="hljs-value"><span class="hljs-number">1489621902</span></span>,
-  "<span class="hljs-attribute">vehicle</span>": <span class="hljs-value"><span class="hljs-string">"IC1832"</span></span>,
+  "<span class="hljs-attribute">vehicle</span>": <span class="hljs-value"><span class="hljs-string">"IC3033"</span></span>,
   "<span class="hljs-attribute">vehicleinfo</span>": <span class="hljs-value">{
-    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"IC1832"</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"BE.NMBS.IC3033"</span></span>,
     "<span class="hljs-attribute">locationX</span>": <span class="hljs-value"><span class="hljs-number">4.421101</span></span>,
     "<span class="hljs-attribute">locationY</span>": <span class="hljs-value"><span class="hljs-number">51.2172</span>
   </span>}</span>,
@@ -337,9 +407,9 @@ By enabling the fast feature, there won’t be any matching between station name
         </span>}</span>,
         "<span class="hljs-attribute">time</span>": <span class="hljs-value"><span class="hljs-number">1489658760</span></span>,
         "<span class="hljs-attribute">delay</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
-        "<span class="hljs-attribute">platform</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+        "<span class="hljs-attribute">platform</span>": <span class="hljs-value"><span class="hljs-number">4</span></span>,
         "<span class="hljs-attribute">platforminfo</span>": <span class="hljs-value">{
-          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"4"</span></span>,
           "<span class="hljs-attribute">normal</span>": <span class="hljs-value"><span class="hljs-string">"1"</span>
         </span>}</span>,
         "<span class="hljs-attribute">canceled</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
@@ -429,7 +499,7 @@ By enabling the fast feature, there won’t be any matching between station name
 <p class="choices"><strong>Choices:&nbsp;</strong><code>nl</code> <code>fr</code> <code>en</code> <code>de</code> </p></dd><dt>fast</dt><dd><code>boolean</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>false</span></span><p>Whether or not you want stations in the result to be matched with an id and name according to iRail/Stations.
 By enabling the fast feature, there won’t be any matching between station names returned by the NMBS and our database. This means there might be differences between the station name in the response and any station name your software knows. Fast is disabled by default, to ensure all stations in the response are matched with an id and a consistent name.
 + Default: false</p>
-</dd></dl></div></div></div><hr class="split"><div class="middle"><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 16 Mar 2017</p></div></div></div></div><script>/* eslint-env browser */
+</dd></dl></div></div></div><hr class="split"><div class="middle"><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 21 Mar 2017</p></div></div></div></div><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 
