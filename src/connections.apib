@@ -16,6 +16,17 @@ Get routes between two stations, including realtime data on delays.
             + departure
             + arrival
 
+    + typeOfTransport: `trains` (enum[string], optional) - The types of transport to include in the search
+        + Default: train
+        + Members
+            + trains
+            + nointernationaltrains
+            + all
+
+    + alerts: `false`(boolean, optional) - Wether or not to include alerts about a route in the response. This could be railworks etc, announced on the NMBS website.
+
+    + results: 6 (number, optional) - The number of results to return. Default value is 6.
+
     <!-- include(fragments/parameters_time.apib) -->
 
     <!-- include(fragments/parameters_date.apib) -->    
@@ -197,7 +208,30 @@ Get routes between two stations, including realtime data on delays.
                 ]
             }
 
-    + Attributes (ConnectionResponse)       
+    + Attributes (ConnectionResponse)
+
++ Request Json
+    
+    + Body
+
+            ?from=Gent-sint-pieters&time=1230&date=180617&lang=nl&format=json
+
++ Response 400 (application/json)
+            
+            {
+                "error": 400,
+                "message": "to not set. Please review your request and add the right parameters"
+            }
++ Request Json
+    
+    + Body
+
+            ?from=query&to=query&time=1230&date=180617&lang=nl&format=json
+
++ Response 404 (application/json)
+
+            {"error":404,"message":"Could not match "query" with a station id in iRail. Please report this issue at https://github.com/irail/stations/issues/new if you think we should support your query."}
+
 
 + Request XML
     
