@@ -2,7 +2,7 @@
 
 Liveboards provides real-time informations on arriving and departing trains for every Belgian station.
 
-## Liveboard API [/liveboard/{?id,station,date,time,arrdep,lang,format,fast}]
+## Liveboard API [/liveboard/{?id,station,date,time,arrdep,lang,format,fast,alerts}]
 
 ### Retrieve a liveboard [GET]
 
@@ -21,7 +21,7 @@ A liveboard for a specified station
             + arrival
 
     + alerts: `false`(boolean, optional) - Wether or not to include alerts about a train in the response. This could be railworks etc, announced on the NMBS website.
-    
+
     <!-- include(fragments/parameters_fast.apib) -->
 
     <!-- include(fragments/parameters_time.apib) -->

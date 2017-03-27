@@ -2,7 +2,7 @@
 
 Get routes between two stations, including realtime data on delays.
 
-## Connections API [/connections/{?from,to,date,time,timesel,format,lang,fast}]
+## Connections API [/connections/{?from,to,date,time,timesel,format,lang,fast,typeOfTransport,alerts,results}]
 
 + Parameters
 
@@ -17,7 +17,7 @@ Get routes between two stations, including realtime data on delays.
             + arrival
 
     + typeOfTransport: `trains` (enum[string], optional) - The types of transport to include in the search
-        + Default: train
+        + Default: trains
         + Members
             + trains
             + nointernationaltrains
