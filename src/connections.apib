@@ -1,0 +1,303 @@
+# Group Connections
+
+Get routes between two stations, including realtime data on delays.
+
+## Connections API [/connections/{?from,to,date,time,timesel,format,lang,fast,typeOfTransport,alerts,results}]
+
++ Parameters
+
+    + from: `Gent-Sint-Pieters` (string, required) - The name or id of the station of departure.
+
+    + to: `Mechelen` (string, required) - The name or id of the destination.
+
+    + timesel: `departure` (enum[string], optional) - Whether the results should show arrivals departures in the station.
+        + Default: departure
+        + Members
+            + departure
+            + arrival
+
+    + typeOfTransport: `trains` (enum[string], optional) - The types of transport to include in the search
+        + Default: trains
+        + Members
+            + trains
+            + nointernationaltrains
+            + all
+
+    + alerts: `false`(boolean, optional) - Wether or not to include alerts about a route in the response. This could be railworks etc, announced on the NMBS website.
+
+    + results: 6 (number, optional) - The number of results to return. Default value is 6.
+
+    <!-- include(fragments/parameters_time.apib) -->
+
+    <!-- include(fragments/parameters_date.apib) -->    
+
+    <!-- include(fragments/parameters_fast.apib) -->
+
+    <!-- include(fragments/parameters_format.apib) -->
+
+    <!-- include(fragments/parameters_lang.apib) -->
+
+### Retrieve connections [GET]
+
++ Request Json
+    
+    + Body
+
+            ?from=Gent-sint-pieters&to=Mechelen&time=1230&date=180617&lang=nl&format=json
+
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Access-Control-Allow-Origin:"*"
+
+    + Body
+
+           
+            {
+
+                "version": "1.1",
+                "timestamp": "1489622781",
+                "connection": [
+                    {
+                        "id": "0",
+                        "departure": {
+                            "delay": "0",
+                            "station": "Gent-Sint-Pieters",
+                            "stationinfo": {
+                                "id": "BE.NMBS.008892007",
+                                "locationX": "3.710675",
+                                "locationY": "51.035896",
+                                "@id": "http://irail.be/stations/NMBS/008892007",
+                                "standardname": "Gent-Sint-Pieters",
+                                "name": "Gent-Sint-Pieters"
+                            },
+                            "time": "1497783600",
+                            "vehicle": "BE.NMBS.L862",
+                            "platform": "3",
+                            "platforminfo": {
+                                "name": "3",
+                                "normal": "1"
+                            },
+                            "canceled": "0",
+                            "direction": {
+                                "name": "Mechelen"
+                            },
+                            "departureConnection": "http://irail.be/connections/8892007/20170618/L862"
+                        },
+                        "arrival": {
+                            "delay": "0",
+                            "station": "Mechelen",
+                            "stationinfo": {
+                                "id": "BE.NMBS.008822004",
+                                "locationX": "4.482785",
+                                "locationY": "51.017648",
+                                "@id": "http://irail.be/stations/NMBS/008822004",
+                                "standardname": "Mechelen",
+                                "name": "Mechelen"
+                            },
+                            "time": "1497786840",
+                            "vehicle": "BE.NMBS.L862",
+                            "platform": "2",
+                            "platforminfo": {
+                                "name": "2",
+                                "normal": "1"
+                            },
+                            "canceled": "0",
+                            "direction": {
+                                "name": "Mechelen"
+                            }
+                        },
+                        "duration": "3240"
+                    },
+                    {
+                        "id": "1",
+                        "departure": {
+                            "delay": "0",
+                            "station": "Gent-Sint-Pieters",
+                            "stationinfo": {
+                                "id": "BE.NMBS.008892007",
+                                "locationX": "3.710675",
+                                "locationY": "51.035896",
+                                "@id": "http://irail.be/stations/NMBS/008892007",
+                                "standardname": "Gent-Sint-Pieters",
+                                "name": "Gent-Sint-Pieters"
+                            },
+                            "time": "1497784200",
+                            "vehicle": "BE.NMBS.IC2812",
+                            "platform": "11",
+                            "platforminfo": {
+                                "name": "11",
+                                "normal": "1"
+                            },
+                            "canceled": "0",
+                            "direction": {
+                                "name": "Brussels Airport - Zaventem"
+                            },
+                            "departureConnection": "http://irail.be/connections/8892007/20170618/IC2812"
+                        },
+                        "arrival": {
+                            "delay": "0",
+                            "station": "Mechelen",
+                            "stationinfo": {
+                                "id": "BE.NMBS.008822004",
+                                "locationX": "4.482785",
+                                "locationY": "51.017648",
+                                "@id": "http://irail.be/stations/NMBS/008822004",
+                                "standardname": "Mechelen",
+                                "name": "Mechelen"
+                            },
+                            "time": "1497788520",
+                            "vehicle": "BE.NMBS.IC9243",
+                            "platform": "8",
+                            "platforminfo": {
+                                "name": "8",
+                                "normal": "1"
+                            },
+                            "canceled": "0",
+                            "direction": {
+                                "name": "Amsterdam Cs (nl)"
+                            }
+                        },
+                        "duration": "4320",
+                        "vias": {
+                            "number": "1",
+                            "via": [
+                                {
+                                    "id": "0",
+                                    "arrival": {
+                                        "time": "1497785940",
+                                        "platform": "8",
+                                        "platforminfo": {
+                                            "name": "8",
+                                            "normal": "1"
+                                        },
+                                        "delay": "0",
+                                        "canceled": "0"
+                                    },
+                                    "departure": {
+                                        "time": "1497786300",
+                                        "platform": "13",
+                                        "platforminfo": {
+                                            "name": "13",
+                                            "normal": "1"
+                                        },
+                                        "delay": "0",
+                                        "canceled": "0",
+                                        "departureConnection": "http://irail.be/connections/8814001/20170618/IC2812"
+                                    },
+                                    "timeBetween": "360",
+                                    "station": "Brussel-Zuid",
+                                    "stationinfo": {
+                                        "id": "BE.NMBS.008814001",
+                                        "locationX": "4.336531",
+                                        "locationY": "50.835707",
+                                        "@id": "http://irail.be/stations/NMBS/008814001",
+                                        "name": "Brussel-Zuid",
+                                        "standardname": "Brussel-Zuid/Bruxelles-Midi"
+                                    },
+                                    "vehicle": "BE.NMBS.IC2812",
+                                    "direction": {
+                                        "name": "Brussels Airport - Zaventem"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+
+    + Attributes (ConnectionResponse)
+
+
++ Response 400 (application/json)
+            
+            {
+                "error": 400,
+                "message": "to not set. Please review your request and add the right parameters"
+            }
+
++ Response 404 (application/json)
+
+            {
+                "error":404,
+                "message": "Could not match 'query' with a station id in iRail. Please report this issue at https://github.com/irail/stations/issues/new if you think we should support your query."
+            }
+
++ Response 500 (application/json)
+            
+            {
+                "error": 500,
+                "message": "Could not get data. Please report this issue at https://github.com/irail/irail/issues/new"
+            }
+
++ Request XML
+    
+    + Body
+
+            ?from=Gent-sint-pieters&to=Mechelen&time=1230&date=180617&lang=nl&format=xml
+
++ Response 200 (text/xml)
+
+    + Headers
+
+            Access-Control-Allow-Origin:"*"
+
+    + Body
+
+            <connections version="1.1" timestamp="1489623027">
+                <connection id="0">
+                    <departure delay="0" canceled="0">
+                        <station id="BE.NMBS.008892007" locationX="3.710675" locationY="51.035896" URI="http://irail.be/stations/NMBS/008892007" standardname="Gent-Sint-Pieters">Gent-Sint-Pieters</station>
+                        <time formatted="2017-06-18T13:00:00">1497783600</time>
+                        <vehicle>BE.NMBS.L862</vehicle>
+                        <platform normal="1">3</platform>
+                        <direction>Mechelen</direction>
+                        <departureConnection>http://irail.be/connections/8892007/20170618/L862</departureConnection>
+                    </departure>
+                    <arrival delay="0" canceled="0">
+                        <station id="BE.NMBS.008822004" locationX="4.482785" locationY="51.017648" URI="http://irail.be/stations/NMBS/008822004" standardname="Mechelen">Mechelen</station>
+                        <time formatted="2017-06-18T13:54:00">1497786840</time>
+                        <vehicle>BE.NMBS.L862</vehicle>
+                        <platform normal="1">2</platform>
+                        <direction>Mechelen</direction>
+                    </arrival>
+                    <duration>3240</duration>
+                </connection>
+                <connection id="1">
+                    <departure delay="0" canceled="0">
+                        <station id="BE.NMBS.008892007" locationX="3.710675" locationY="51.035896" URI="http://irail.be/stations/NMBS/008892007" standardname="Gent-Sint-Pieters">Gent-Sint-Pieters</station>
+                        <time formatted="2017-06-18T13:10:00">1497784200</time>
+                        <vehicle>BE.NMBS.IC2812</vehicle>
+                        <platform normal="1">11</platform>
+                        <direction>Brussels Airport - Zaventem</direction>
+                        <departureConnection>http://irail.be/connections/8892007/20170618/IC2812</departureConnection>
+                    </departure>
+                    <arrival delay="0" canceled="0">
+                        <station id="BE.NMBS.008822004" locationX="4.482785" locationY="51.017648" URI="http://irail.be/stations/NMBS/008822004" standardname="Mechelen">Mechelen</station>
+                        <time formatted="2017-06-18T14:22:00">1497788520</time>
+                        <vehicle>BE.NMBS.IC9243</vehicle>
+                        <platform normal="1">8</platform>
+                        <direction>Amsterdam Cs (nl)</direction>
+                    </arrival>
+                    <duration>4320</duration>
+                    <vias number="1">
+                        <via id="0">
+                            <arrival delay="0" canceled="0">
+                                <time formatted="2017-06-18T13:39:00">1497785940</time>
+                                <platform normal="1">8</platform>
+                            </arrival>
+                            <departure delay="0" canceled="0">
+                                <time formatted="2017-06-18T13:45:00">1497786300</time>
+                                <platform normal="1">13</platform>
+                            <departureConnection>http://irail.be/connections/8814001/20170618/IC2812</departureConnection>
+                            </departure>
+                            <timeBetween>360</timeBetween>
+                            <station id="BE.NMBS.008814001" locationX="4.336531" locationY="50.835707" URI="http://irail.be/stations/NMBS/008814001" standardname="Brussel-Zuid/Bruxelles-Midi">Brussel-Zuid</            station>
+                            <vehicle>BE.NMBS.IC2812</vehicle>
+                            <direction>Brussels Airport - Zaventem</direction>
+                        </via>
+                    </vias>
+                </connection>
+            </connections>    

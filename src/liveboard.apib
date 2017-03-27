@@ -1,0 +1,130 @@
+# Group Liveboard
+
+Liveboards provides real-time informations on arriving and departing trains for every Belgian station.
+
+## Liveboard API [/liveboard/{?id,station,date,time,arrdep,lang,format,fast,alerts}]
+
+### Retrieve a liveboard [GET]
+
+A liveboard for a specified station
+
++ Parameters
+    
+    + station: `Gent-Sint-Pieters` (string, required) - The name of the station to query.
+
+    + id: `BE.NMBS.008892007` (string, optional) - If you know the id of a station, this might be used instead of a name. **Do not** use an id and a name at the same time.
+
+    + arrdep: `departure` (enum[string], optional) - Whether the results should show arrivals departures in the station.
+        + Default: departure
+        + Members
+            + departure
+            + arrival
+
+    + alerts: `false`(boolean, optional) - Wether or not to include alerts about a train in the response. This could be railworks etc, announced on the NMBS website.
+
+    <!-- include(fragments/parameters_fast.apib) -->
+
+    <!-- include(fragments/parameters_time.apib) -->
+
+    <!-- include(fragments/parameters_date.apib) -->    
+
+    <!-- include(fragments/parameters_format.apib) -->
+
+    <!-- include(fragments/parameters_lang.apib) -->
+
+
++ Request Json
+    
+    + Body
+
+            ?station=Gent-Sint-Pieters&format=json
+
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Access-Control-Allow-Origin:"*"
+
+    + Body
+
+            {
+        
+                "version": "1.1",
+                "timestamp": "1489614297",
+                "station": "Ghent-Sint-Pieters",
+                "stationinfo": {
+                    "id": "BE.NMBS.008892007",
+                    "locationX": "3.710675",
+                    "locationY": "51.035896",
+                    "@id": "http://irail.be/stations/NMBS/008892007",
+                    "name": "Ghent-Sint-Pieters",
+                    "standardname": "Gent-Sint-Pieters"
+                },
+                "departures": {
+                    "number": "32",
+                    "departure": [
+                        {
+                            "id": "0",
+                            "delay": "0",
+                            "station": "Ronse",
+                            "stationinfo": {
+                                "id": "BE.NMBS.008892908",
+                                "locationX": "3.602552",
+                                "locationY": "50.742506",
+                                "@id": "http://irail.be/stations/NMBS/008892908",
+                                "standardname": "Ronse",
+                                "name": "Ronse"
+                            },
+                            "time": "1489575600",
+                            "vehicle": "BE.NMBS.L782",
+                            "vehicleinfo": {
+                                "name": "BE.NMBS.L782",
+                                "@id": "http://irail.be/vehicle/L782"
+                            },
+                            "platform": "4",
+                            "platforminfo": {
+                                "name": "4",
+                                "normal": "1"
+                            },
+                            "canceled": "0",
+                            "left": "0",
+                            "departureConnection": "http://irail.be/connections/8892007/20170315/L782",
+                            "occupancy": {
+                                "name": "unknown",
+                                "@id": "http://api.irail.be/terms/unknown"
+                            }
+                        }
+                    ]
+                }
+            }
+
+    + Attributes (LiveboardResponse)
+
++ Request XML
+    
+    + Body
+
+            ?station=Gent-Sint-Pieters&format=xml
+
++ Response 200 (text/xml)
+
+    + Headers
+
+            Access-Control-Allow-Origin:"*"
+
+    + Body
+
+            <liveboard version="1.1" timestamp="1489614530">
+                <station id="BE.NMBS.008892007" locationX="3.710675" locationY="51.035896" URI="http://irail.be/stations/NMBS/008892007" standardname="Gent-Sint-Pieters">Ghent-Sint-Pieters</    station>
+                <departures number="32">
+                    <departure id="0" delay="0" canceled="0" left="0">
+                        <station id="BE.NMBS.008892908" locationX="3.602552" locationY="50.742506" URI="http://irail.be/stations/NMBS/008892908" standardname="Ronse">Ronse</station>
+                        <time formatted="2017-03-15T12:00:00">1489575600</time>
+                        <vehicle URI="http://irail.be/vehicle/L782">BE.NMBS.L782</vehicle>
+                        <platform normal="1">4</platform>
+                        <departureConnection>http://irail.be/connections/8892007/20170315/L782</departureConnection>
+                        <occupancy URI="http://api.irail.be/terms/unknown">unknown</occupancy>
+                    </departure>
+                </departures>
+            </liveboard>
