@@ -19,7 +19,7 @@
 + station: `Antwerp-central` (string, required) - The name of this station as returned by the nmbs
 + stationinfo (Station, optional)
 + time: 1489658760 (number, required) - The unix timestamp, expressed as seconds since January 1st 1970
-+ delay: 0 (number, required) - //TODO: document (which delay is this exactly)
++ delay: 0 (number, required) - (Deprecated) The departure delay, in seconds. Use departureDelay instead.
 + platform: 4 (number, required) - The platform from which this train will depart
 + platforminfo (PlatformInfo, required)
 + canceled: 0 (number, required) - Whether or not this train has been cancelled
@@ -64,7 +64,7 @@
 ## Departure (object)
 
 + id: 0 (number, required)    
-+ delay: 0 (number, required)
++ delay: 0 (number, required) - The departure delay, in seconds
 + station: `Antwerp-Central` (string, required)
 + stationinfo (Station, optional)
 + time: 1489575600 (number, required) - The unix timestamp, expressed as seconds since January 1st 1970
@@ -97,9 +97,14 @@
 + id: 0 (number, required)
 + departure (ConnectionDeparture)
 + arrival (ConnectionArrival)
++ duration: 3240 (number, required) - The total duration of this connection, in seconds
++ vias (object)
+    + number: 1 (number, required) - The number of vias (transfers) in this connection
+    + via (array[Via], required)
 
 ## ConnectionDeparture (object)
 
++ delay: 0 (number, required) - The departure delay, in seconds.
 + station: `Antwerp-Central` (string, required)
 + stationinfo (Station, optional)
 + time: 1497783600 (number, required) - The unix timestamp, expressed as seconds since January 1st 1970
@@ -114,7 +119,7 @@
 
 ## ConnectionArrival (object)
 
-+ delay: 0 (number, required)
++ delay: 0 (number, required) - The arrival delay, in seconds
 + station: `Antwerp-Central` (string, required)
 + stationinfo (Station, optional)
 + time: 1497786840 (number, required) - The unix timestamp, expressed as seconds since January 1st 1970
@@ -123,5 +128,29 @@
 + platform: 4 (number, required) - The platform from which this train will depart
 + platforminfo (PlatformInfo, required)
 + canceled: 0 (number, required) - Whether or not this train has been cancelled
++ direction (object, required)
+    + name : `Mechelen` (string, required)
+
+
+## Via (object)
+
++ id 
++ arrival
+    + time: 1497783600 (number, required) - The unix timestamp, expressed as seconds since January 1st 1970    
+    + platform: 4 (number, required) - The platform from which this train will depart
+    + platforminfo (PlatformInfo, required)
+    + delay: 0 (number, required) - The arrival delay, in seconds
+    + canceled: 0 (number, required) - Whether or not this train has been cancelled
++ departure    
+    + time: 1497783600 (number, required) - The unix timestamp, expressed as seconds since January 1st 1970    
+    + platform: 4 (number, required) - The platform from which this train will depart
+    + platforminfo (PlatformInfo, required)
+    + delay: 0 (number, required) - The departure delay, in seconds
+    + canceled: 0 (number, required) - Whether or not this train has been cancelled
+    + departureConnection: `http://irail.be/connections/8821006/20170316/IC1832` (string, required) - //TODO: document
++ timeBetween: 360 (number, required) - The time between the arrival and departure at the transfer station, in seconds
++ station: `Antwerp-Central` (string, required)
++ stationinfo (Station, optional)
++ vehicle: `BE.NMBS.IC3033` (string, required)
 + direction (object, required)
     + name : `Mechelen` (string, required)
