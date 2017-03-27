@@ -210,11 +210,6 @@ Get routes between two stations, including realtime data on delays.
 
     + Attributes (ConnectionResponse)
 
-+ Request Json
-    
-    + Body
-
-            ?from=Gent-sint-pieters&time=1230&date=180617&lang=nl&format=json
 
 + Response 400 (application/json)
             
@@ -222,16 +217,20 @@ Get routes between two stations, including realtime data on delays.
                 "error": 400,
                 "message": "to not set. Please review your request and add the right parameters"
             }
-+ Request Json
-    
-    + Body
-
-            ?from=query&to=query&time=1230&date=180617&lang=nl&format=json
 
 + Response 404 (application/json)
 
-            {"error":404,"message":"Could not match "query" with a station id in iRail. Please report this issue at https://github.com/irail/stations/issues/new if you think we should support your query."}
+            {
+                "error":404,
+                "message": "Could not match 'query' with a station id in iRail. Please report this issue at https://github.com/irail/stations/issues/new if you think we should support your query."
+            }
 
++ Response 500 (application/json)
+            
+            {
+                "error": 500,
+                "message": "Could not get data. Please report this issue at https://github.com/irail/irail/issues/new"
+            }
 
 + Request XML
     
