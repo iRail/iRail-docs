@@ -25,7 +25,7 @@ Get routes between two stations, including realtime data on delays.
 
     + alerts: `false`(boolean, optional) - Wether or not to include alerts about a route in the response. This could be railworks etc, announced on the NMBS website.
 
-    + results: 6 (number, optional) - The number of results to return. Default value is 6.
+    + results: 6 (number, optional) - The number of results to return. Default value is 6. This might be used as a guideline for the server, but there is no guarantee the server will return this exact amount of results!
 
     <!-- include(fragments/parameters_time.apib) -->
 
@@ -40,17 +40,18 @@ Get routes between two stations, including realtime data on delays.
 ### Retrieve connections [GET]
 
 + Request Json
+
+    + Headers
+
+            Accept: application/json
     
-    + Body
-
-            ?from=Gent-sint-pieters&to=Mechelen&time=1230&date=180617&lang=nl&format=json
-
-
 + Response 200 (application/json)
 
     + Headers
 
             Access-Control-Allow-Origin:"*"
+            cache-control: Public
+            etag: "e5e7c8ae25bb71cdfce80412c2b1be54"
 
     + Body
 
@@ -234,15 +235,17 @@ Get routes between two stations, including realtime data on delays.
 
 + Request XML
     
-    + Body
+    + Headers
 
-            ?from=Gent-sint-pieters&to=Mechelen&time=1230&date=180617&lang=nl&format=xml
+            Accept: application/xml
 
-+ Response 200 (text/xml)
++ Response 200 (application/xml)
 
     + Headers
 
             Access-Control-Allow-Origin:"*"
+            cache-control: Public
+            etag: "e5e7c8ae25bb71cdfce80412c2b1be54"
 
     + Body
 
@@ -300,4 +303,10 @@ Get routes between two stations, including realtime data on delays.
                         </via>
                     </vias>
                 </connection>
-            </connections>    
+            </connections>  
+
++ Response 404 (application/xml)
+
+    + Body
+           
+            <error code="404">Could not match "samplestation" with a station id in iRail. Please report this issue at https://github.com/irail/stations/issues/new if you think we should support your query.</error>

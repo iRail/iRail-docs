@@ -14,17 +14,18 @@ Alternatively, you can check out our repo at https://github.com/iRail/stations f
 ### Retrieve all stations [GET]
 
 + Request Json
-    
-    + Body
 
-            ?format=json
+    + Headers
 
+            Accept: application/json
 
 + Response 200 (application/json)
 
     + Headers
 
             Access-Control-Allow-Origin:"*"
+            cache-control: Public
+            etag: "e5e7c8ae25bb71cdfce80412c2b1be54"
 
     + Body
 
@@ -47,15 +48,17 @@ Alternatively, you can check out our repo at https://github.com/iRail/stations f
 
 + Request XML
     
-    + Body
+    + Headers
 
-            ?format=xml
+            Accept: application/xml
 
-+ Response 200 (text/xml)
++ Response 200 (application/xml)
 
     + Headers
 
             Access-Control-Allow-Origin:"*"
+            cache-control: Public
+            etag: "e5e7c8ae25bb71cdfce80412c2b1be54"
 
     + Body
 
