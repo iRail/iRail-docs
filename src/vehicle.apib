@@ -18,29 +18,34 @@ Retrieve information about a vehicle.
 
 ### Retrieve a vehicle [GET]
 
+Retrieve information about a vehicle (train), including stops, occupancy, current location and delays.
+
 + Request Json
-    
-    + Body
 
-            ?vehicle=BE.NMBS.IC1832&format=json
+    + Headers
 
+            Accept: application/json
 
 + Response 200 (application/json)
 
     + Headers
 
-            Access-Control-Allow-Origin:"*"
+            Access-Control-Allow-Origin: "*"
+            cache-control: Public
+            etag: "e5e7c8ae25bb71cdfce80412c2b1be54"
 
     + Body
 
             {
                 "version": "1.1",
                 "timestamp": "1489621902",
-                "vehicle": "IC1832",
+                "vehicle": "BE.NMBS.IC1832",
                 "vehicleinfo": {
-                    "locationX": "4.421101",
-                    "locationY": "51.2172",
-                    "name": "IC1832"
+                    "locationX": "3.216726",
+                    "locationY": "51.197226",
+                    "name": "BE.NMBS.IC1832",
+                    "shortname": "IC1832",
+                    "@id": "http://irail.be/vehicle/IC1832"
                 },
                 "stops": {
                     "number": "10",
@@ -56,25 +61,26 @@ Retrieve information about a vehicle.
                                 "name": "Antwerp-Central",
                                 "standardname": "Antwerpen-Centraal"
                             },
-                            "time": "1489658760",
-                            "delay": "0",
+                            "time": "1505984760",
+                            "delay": "240",
                             "platform": "1",
                             "platforminfo": {
                                 "name": "1",
                                 "normal": "1"
                             },
                             "canceled": "0",
-                            "departureDelay": "0",
+                            "departureDelay": "240",
                             "departureCanceled": "0",
-                            "scheduledDepartureTime": "1489658760",
-                            "scheduledArrivalTime": "1489658760",
+                            "scheduledDepartureTime": "1505984760",
+                            "scheduledArrivalTime": "1505984760",
                             "arrivalDelay": "0",
                             "arrivalCanceled": "0",
-                            "departureConnection": "http://irail.be/connections/8821006/20170316/IC1832",
+                            "departureConnection": "http://irail.be/connections/8821006/20170921/IC1832",
+                            "left": "1",
                             "occupancy": {
                                 "@id": "http://api.irail.be/terms/unknown",
                                 "name": "unknown"
-                            }
+                            }                            
                         }
                     ]            
                 }
@@ -82,38 +88,54 @@ Retrieve information about a vehicle.
 
     + Attributes (VehicleResponse)
 
-+ Request XML
-    
++ Response 404 (application/json)
+
     + Body
+           
+            {
+                "error": 404,
+                "message": "Route not available."
+            }
 
-            ?vehicle=BE.NMBS.IC1832&format=xml
-
-+ Response 200 (text/xml)
++ Request XML
 
     + Headers
 
-            Access-Control-Allow-Origin:"*"
+            Accept: application/xml
+
++ Response 200 (application/xml)
+
+    + Headers
+
+            Access-Control-Allow-Origin: "*"
+            cache-control: Public
+            etag: "e5e7c8ae25bb71cdfce80412c2b1be54"
 
     + Body
 
-            <vehicleinformation version="1.1" timestamp="1489622066">
-                <vehicle locationX="4.421101" locationY="51.2172">IC1832</vehicle>
+            <vehicleinformation version="1.1" timestamp="1505995100">
+                <vehicle locationX="3.216726" locationY="51.197226" shortname="IC1832" URI="http://irail.be/vehicle/IC1832">BE.NMBS.IC1832</vehicle>
                 <stops number="10">
-                    <stop id="0" delay="0" canceled="0">
-                        <station id="BE.NMBS.008821006" locationX="4.421101" locationY="51.2172" URI="http://irail.be/stations/NMBS/008821006"     standardname="Antwerpen-Centraal">Antwerp-Central</station>
-                        <time formatted="2017-03-16T11:06:00">1489658760</time>
+                    <stop id="0" delay="240" canceled="0" left="1">
+                        <station id="BE.NMBS.008821006" locationX="4.421101" locationY="51.2172" URI="http://irail.be/stations/NMBS/008821006" standardname="Antwerpen-Centraal">Antwerp-Central</station>
+                        <time formatted="2017-09-21T11:06:00">1505984760</time>
                         <platform normal="1">1</platform>
-                        <departureDelay>0</departureDelay>
+                        <departureDelay>240</departureDelay>
                         <departureCanceled>0</departureCanceled>
-                        <scheduledDepartureTime formatted="2017-03-16T11:06:00">1489658760</scheduledDepartureTime>
-                        <scheduledArrivalTime formatted="2017-03-16T11:06:00">1489658760</scheduledArrivalTime>
+                        <scheduledDepartureTime formatted="2017-09-21T11:06:00">1505984760</scheduledDepartureTime>
+                        <scheduledArrivalTime formatted="2017-09-21T11:06:00">1505984760</scheduledArrivalTime>
                         <arrivalDelay>0</arrivalDelay>
                         <arrivalCanceled>0</arrivalCanceled>
-                        <departureConnection>http://irail.be/connections/8821006/20170316/IC1832</departureConnection>
+                        <departureConnection>http://irail.be/connections/8821006/20170921/IC1832</departureConnection>
                         <occupancy URI="http://api.irail.be/terms/unknown">unknown</occupancy>
                     </stop>
                 </stops>    
             </vehicleinformation>    
 
 
++ Response 404 (application/xml)
+
+    + Body
+           
+            <error code="404">Route not available.</error>
 

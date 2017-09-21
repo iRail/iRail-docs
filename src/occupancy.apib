@@ -1,0 +1,66 @@
+# Group Occupancy
+
+Give feedback about occupancy on a vehicle at a certain stop
+
+## Feedback API [/feedback/occupancy.php]
+
+### Post feedback to iRail [POST]
+
+When posting feedback to iRail, your feedback will be instantly processed. The occupancy on a given train will be determined by the average of all feedback which is received.
+
+The following data should be included in the POST request:
+
+    + connection: The connection id for which feedback is posted. 
+    + from: The station id for which station feedback is posted.
+    + date: The date for which feedback is posted in yyyymmdd format.
+    + vehicle: The connection id for which feedback is posted.
+    + occupancy: The occupancy term which defines the reported occupancy in this train. Valid values: 
+        + http://api.irail.be/terms/low
+        + http://api.irail.be/terms/medium
+        + http://api.irail.be/terms/high
+
+::: note
+At this moment, there definitely is data duplication in the post parameters. However, since the connection id can change at any moment, we cannot retrieve any information out of it - it is only used as an id.
+:::
+
+::: warning
+#### <i class="fa fa-warning"></i> Caution
+Semantic ids can change at any time without warning. You should not calculate or compose semantic ids, but rather re-use ids included in previous API answers
+:::
+
+
+
+
++ Request Json
+    
+    + Headers
+
+            Content-Type: application/json
+
+    + Body
+
+            {
+                "connection": "http://irail.be/connections/8871308/20160722/IC4516",
+                "from": "http://irail.be/stations/NMBS/008871308",
+                "date": "20160722",
+                "vehicle": "http://irail.be/vehicle/IC4516",
+                "occupancy":"http://api.irail.be/terms/medium"
+            }
+    
+    + Attributes (object)
+        
+        + connection: `http://irail.be/connections/8871308/20160722/IC4516` (string, required) - The connection id for which feedback is posted. **Never** calculate or compose this id, but copy it from an API response.
+        + from: `http://irail.be/stations/NMBS/008871308` (string, required) - The station id for which station feedback is posted. **It is discouraged** to calculate or compose this id, but copy it from an API response or stations.csv instead.
+        + date: `20160722` (string, required) - The date for which feedback is posted in yyyymmdd format
+        + vehicle: `http://irail.be/vehicle/IC4516` (string, required) - The connection id for which feedback is posted. **Never** calculate or compose this id, but copy it from an API response.
+        + occupancy: `http://api.irail.be/terms/medium` (enum[string], required) - The occupancy term which defines the reported occupancy in this train. 
+            + Members
+                + http://api.irail.be/terms/low
+                + http://api.irail.be/terms/medium
+                + http://api.irail.be/terms/high
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Location: "http://irail.be/vehicle/IC4516"
