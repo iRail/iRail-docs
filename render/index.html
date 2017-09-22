@@ -427,11 +427,13 @@ By enabling the fast feature, there won’t be any matching between station name
 </section></div><div class="middle"><div id="vehicle-vehicle-api" class="resource"><h3 class="resource-heading">Vehicle API <a href="#vehicle-vehicle-api" class="permalink">&para;</a></h3></div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/vehicle/?<span class="hljs-attribute">id=</span><span class="hljs-literal">BE.NMBS.IC1832</span>&<span class="hljs-attribute">fast=</span><span class="hljs-literal">false</span>&<span class="hljs-attribute">format=</span><span class="hljs-literal">json</span>&<span class="hljs-attribute">lang=</span><span class="hljs-literal">en</span>&<span class="hljs-attribute">alerts=</span><span class="hljs-literal">false</span></span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">Json</span><span class="tab-button">XML</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span><span class="tab-button">404</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Access-Control-Allow-Origin</span>: <span class="hljs-string">"*"</span><br><span class="hljs-attribute">cache-control</span>: <span class="hljs-string">Public</span><br><span class="hljs-attribute">etag</span>: <span class="hljs-string">"e5e7c8ae25bb71cdfce80412c2b1be54"</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-string">"1.1"</span></span>,
   "<span class="hljs-attribute">timestamp</span>": <span class="hljs-value"><span class="hljs-number">1489621902</span></span>,
-  "<span class="hljs-attribute">vehicle</span>": <span class="hljs-value"><span class="hljs-string">"IC3033"</span></span>,
+  "<span class="hljs-attribute">vehicle</span>": <span class="hljs-value"><span class="hljs-string">"BE.NMBS.IC3033"</span></span>,
   "<span class="hljs-attribute">vehicleinfo</span>": <span class="hljs-value">{
     "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"BE.NMBS.IC3033"</span></span>,
     "<span class="hljs-attribute">locationX</span>": <span class="hljs-value"><span class="hljs-number">4.421101</span></span>,
-    "<span class="hljs-attribute">locationY</span>": <span class="hljs-value"><span class="hljs-number">51.2172</span>
+    "<span class="hljs-attribute">locationY</span>": <span class="hljs-value"><span class="hljs-number">51.2172</span></span>,
+    "<span class="hljs-attribute">shortname</span>": <span class="hljs-value"><span class="hljs-string">"IC3033"</span></span>,
+    "<span class="hljs-attribute">@id</span>": <span class="hljs-value"><span class="hljs-string">"http://irail.be/vehicle/IC3033"</span>
   </span>}</span>,
   "<span class="hljs-attribute">stops</span>": <span class="hljs-value">{
     "<span class="hljs-attribute">number</span>": <span class="hljs-value"><span class="hljs-number">10</span></span>,
@@ -461,7 +463,7 @@ By enabling the fast feature, there won’t be any matching between station name
         "<span class="hljs-attribute">arrivalDelay</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
         "<span class="hljs-attribute">arrivalCanceled</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
         "<span class="hljs-attribute">scheduledArrivalTime</span>": <span class="hljs-value"><span class="hljs-number">1489658760</span></span>,
-        "<span class="hljs-attribute">departureConnection</span>": <span class="hljs-value"><span class="hljs-string">"http://irail.be/connections/8821006/20170316/IC1832"</span></span>,
+        "<span class="hljs-attribute">departureConnection</span>": <span class="hljs-value"><span class="hljs-string">"http://irail.be/connections/8821006/20170316/IC3033"</span></span>,
         "<span class="hljs-attribute">occupancy</span>": <span class="hljs-value">{
           "<span class="hljs-attribute">@id</span>": <span class="hljs-value"><span class="hljs-string">"http://api.irail.be/terms/unknown"</span></span>,
           "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"unknown"</span>
@@ -493,12 +495,20 @@ By enabling the fast feature, there won’t be any matching between station name
         </span>}</span>,
         "<span class="hljs-attribute">locationY</span>": <span class="hljs-value">{
           "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"number"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">shortname</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+        </span>}</span>,
+        "<span class="hljs-attribute">@id</span>": <span class="hljs-value">{
+          "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
         </span>}
       </span>}</span>,
       "<span class="hljs-attribute">required</span>": <span class="hljs-value">[
         <span class="hljs-string">"name"</span>,
         <span class="hljs-string">"locationX"</span>,
-        <span class="hljs-string">"locationY"</span>
+        <span class="hljs-string">"locationY"</span>,
+        <span class="hljs-string">"shortname"</span>,
+        <span class="hljs-string">"@id"</span>
       ]
     </span>}</span>,
     "<span class="hljs-attribute">stops</span>": <span class="hljs-value">{
@@ -547,7 +557,7 @@ By enabling the fast feature, there won’t be any matching between station name
 By enabling the fast feature, there won’t be any matching between station names returned by the NMBS and our database. This means there might be differences between the station name in the response and any station name your software knows. Fast is disabled by default, to ensure all stations in the response are matched with an id and a consistent name.
 + Default: false</p>
 </dd></dl></div></div></div><hr class="split"><div class="middle"><section id="occupancy" class="resource-group"><h2 class="group-heading">Occupancy <a href="#occupancy" class="permalink">&para;</a></h2><p>Give feedback about occupancy on a vehicle at a certain stop</p>
-</section></div><div class="middle"><div id="occupancy-feedback-api" class="resource"><h3 class="resource-heading">Feedback API <a href="#occupancy-feedback-api" class="permalink">&para;</a></h3></div></div><div class="right"><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/feedback/occupancy.php</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">Json</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+</section></div><div class="middle"><div id="occupancy-feedback-api" class="resource"><h3 class="resource-heading">Feedback API <a href="#occupancy-feedback-api" class="permalink">&para;</a></h3></div></div><div class="right"><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/feedback/occupancy</span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">Json</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">connection</span>": <span class="hljs-value"><span class="hljs-string">"http://irail.be/connections/8871308/20160722/IC4516"</span></span>,
   "<span class="hljs-attribute">from</span>": <span class="hljs-value"><span class="hljs-string">"http://irail.be/stations/NMBS/008871308"</span></span>,
   "<span class="hljs-attribute">date</span>": <span class="hljs-value"><span class="hljs-string">"20160722"</span></span>,
@@ -590,7 +600,7 @@ By enabling the fast feature, there won’t be any matching between station name
     <span class="hljs-string">"vehicle"</span>,
     <span class="hljs-string">"occupancy"</span>
   ]
-</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Location</span>: <span class="hljs-string">"http://irail.be/vehicle/IC4516"</span></code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="occupancy-feedback-api-post" class="action post"><h4 class="action-heading"><div class="name">Post feedback to iRail</div><a href="#occupancy-feedback-api-post" class="method post">POST</a><code class="uri">/feedback/occupancy.php</code></h4><p>When posting feedback to iRail, your feedback will be instantly processed. The occupancy on a given train will be determined by the average of all feedback which is received.</p>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Location</span>: <span class="hljs-string">"http://irail.be/vehicle/IC4516"</span></code></pre><div style="height: 1px;"></div></div></div></div></div></div></div></div><div class="middle"><div id="occupancy-feedback-api-post" class="action post"><h4 class="action-heading"><div class="name">Post feedback to iRail</div><a href="#occupancy-feedback-api-post" class="method post">POST</a><code class="uri">/feedback/occupancy</code></h4><p>When posting feedback to iRail, your feedback will be instantly processed. The occupancy on a given train will be determined by the average of all feedback which is received.</p>
 <p>The following data should be included in the POST request:</p>
 <ul>
 <li>connection: The connection id for which feedback is posted.
@@ -615,7 +625,7 @@ By enabling the fast feature, there won’t be any matching between station name
 <h4 id="header-caution"><i class="fa fa-warning"></i> Caution <a class="permalink" href="#header-caution" aria-hidden="true">¶</a></h4>
 <p>Semantic ids can change at any time without warning. You should not calculate or compose semantic ids, but rather re-use ids included in previous API answers</p>
 </div>
-</div></div><hr class="split"><div class="middle"><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 21 Sep 2017</p></div></div></div></div><script>/* eslint-env browser */
+</div></div><hr class="split"><div class="middle"><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 22 Sep 2017</p></div></div></div></div><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 

@@ -2,7 +2,7 @@
 
 + version: `1.1` (string)
 + timestamp: 1489621902 (number)
-+ vehicle: IC3033 (string, required)
++ vehicle: BE.NMBS.IC3033 (string, required)
 + vehicleinfo (Vehicle)
 + stops (object)
     + number: 10 (number, required)
@@ -13,6 +13,8 @@
 + name: BE.NMBS.IC3033 (string, required)
 + locationX: `4.421101` (number, required)
 + locationY: `51.2172` (number, required)
++ shortname: IC3033 (string, required)
++ @id: `http://irail.be/vehicle/IC3033` (string, required)
 
 ## Stop (object)
 + id: 0 (number, required) - The index of this stop in an array of stops
@@ -29,7 +31,7 @@
 + arrivalDelay: 0 (number, required)
 + arrivalCanceled: 0 (number, required)
 + scheduledArrivalTime: 1489658760 (number, required) - The unix timestamp, expressed as seconds since January 1st 1970
-+ departureConnection: `http://irail.be/connections/8821006/20170316/IC1832` (string, required) - //TODO: document
++ departureConnection: `http://irail.be/connections/8821006/20170316/IC3033` (string, required) - The identifier for this specific departure. Always copy this identifier, never try to compose it yourself, as it might change without warning.
 + occupancy (Occupancy, optional) - The occupancy on this train. This data is only available in a limited timespan, and won't be included for trains in the far future.
 
 ## Station (object)
