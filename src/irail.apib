@@ -1,17 +1,29 @@
 FORMAT: 1A
 
-# iRail
+# iRail API Docs
 
 iRail supports digital creativity concerning mobility in Belgium. 
 This is an attempt to make the railway time schedules in Belgium easily available for anyone.
 
 The iRail api allows anyone to query trains, stations, liveboards and connections.
 
+If you build an application on top of the iRail api, be sure to do at least one of the following things:
+
+- If possible, set the user-agent header string. Include the name of your application, and a way to contact you in case something would go wrong. An example user agent string format is `<application name>/<application version> (<website>; <mail>)`, which could result in the following string: `irail/1.2.0 (irail.be; hello@irail.be)`. The use of a user agent string like this isn't obligated or enforced, but allows for better communication.
+- If you can't set the user agent string, at least be sure to follow us on [github](https://github.com/irail/irail), [website](https://hello.irail.be) or [gitter](https://gitter.im/iRail/iRail).
+
+
+::: note
+You can check the current status of the API at [status.irail.be](https://status.irail.be)
+:::
+
 <!-- include(stations.apib) -->
 <!-- include(liveboard.apib) -->
 <!-- include(connections.apib) -->
 <!-- include(vehicle.apib) -->
 <!-- include(occupancy.apib) -->
+<!-- include(logs.apib) -->
+
 
 # Data Structures
 

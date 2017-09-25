@@ -1,0 +1,51 @@
+# Group Log endpoint
+
+The logging endpoint gives insights about the usage of api.irail.be.
+
+## Logs API [/logs/]
+
+### Retrieve the last logs [GET]
+
+Retrieve the 1000 last log entries in JSON format.
+
++ Request Json
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Access-Control-Allow-Origin: "*"
+
+    + Body
+
+            {
+                "querytype": "liveboard",
+                "querytime": "2017-09-25T13:10:19+02:00",
+                "query": {
+                    "serialization": "xml",
+                    "language": "EN",
+                    "dateTime": "2017-09-25T13:10:00+01:00",
+                    "departureStop": {
+                        "@id": "http://irail.be/stations/NMBS/008891009",
+                        "longitude": "3.216726",
+                        "latitude": "51.197226",
+                        "name": "Brugge",
+                        "query": "BE.NMBS.008891009"
+                    }
+                },
+                "user_agent": "python-requests/2.6.0 CPython/2.7.13 Linux/4.4.0-1022-aws"
+            },
+            {
+                "querytype": "vehicleinformation",
+                "querytime": "2017-09-25T13:10:20+02:00",
+                "query": {
+                    "serialization": "json",
+                    "language": "EN",
+                    "vehicle": "BE.NMBS.L2583"
+                },
+                "user_agent": "The DataTank 1.0"
+            }]
