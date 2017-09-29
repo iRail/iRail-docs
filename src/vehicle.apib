@@ -2,11 +2,13 @@
 
 Retrieve information about a vehicle.
 
-## Vehicle API [/vehicle/{?id,fast,format,lang,alerts}]
+## Vehicle API [/vehicle/{?id,date,fast,format,lang,alerts}]
 
 + Parameters
 
     + id: `BE.NMBS.IC1832` (string, required): The id of the vehicle to query. The identifier 'BE.NMBS.' can be left out, but is encouraged to ensure your application is future-proof.
+
+    <!-- include(fragments/parameters_date.apib) -->
 
     + alerts: `false`(boolean, optional) - Wether or not to include alerts about a train in the response. This could be railworks etc, announced on the NMBS website.
 
