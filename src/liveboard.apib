@@ -4,6 +4,11 @@ Liveboards provides real-time informations on arriving and departing trains for 
 
 ## Liveboard API [/liveboard/{?id,station,date,time,arrdep,lang,format,fast,alerts}]
 
+::: warning
+#### <i class="fa fa-warning"></i> Be aware
+Trying to query data way in the past, or way in the future, might result in error 500 responses. If you're not sure what causes an error 500 response, be sure to check if your query works for the current day, or if the NMBS website has the data for the date you want to look up.
+:::
+
 ### Retrieve a liveboard [GET]
 
 A liveboard for a specified station. This includes departures or arrivals, along with their delays, train ids, occupancy, ...
@@ -31,7 +36,6 @@ A liveboard for a specified station. This includes departures or arrivals, along
     <!-- include(fragments/parameters_format.apib) -->
 
     <!-- include(fragments/parameters_lang.apib) -->
-
 
 + Request Json
     

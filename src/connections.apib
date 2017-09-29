@@ -4,6 +4,11 @@ Get routes between two stations, including realtime data on delays.
 
 ## Connections API [/connections/{?from,to,date,time,timesel,format,lang,fast,typeOfTransport,alerts,results}]
 
+::: warning
+#### <i class="fa fa-warning"></i> Be aware
+Trying to query data way in the past, or way in the future, might result in error 500 responses. If you're not sure what causes an error 500 response, be sure to check if your query works for the current day, or if the NMBS website has the data for the date you want to look up.
+:::
+
 + Parameters
 
     + from: `Gent-Sint-Pieters` (string, required) - The name or id of the station of departure.
