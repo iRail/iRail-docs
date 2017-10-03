@@ -7,14 +7,30 @@ This is an attempt to make the railway time schedules in Belgium easily availabl
 
 The iRail api allows anyone to query trains, stations, liveboards and connections.
 
+::: note
+You can check the current status of the API at [status.irail.be](https://status.irail.be)
+:::
+
+## Best practices when using the API
+
 If you build an application on top of the iRail api, be sure to do at least one of the following things:
 
 - If possible, set the user-agent header string. Include the name of your application, and a way to contact you in case something would go wrong. An example user agent string format is `<application name>/<application version> (<website>; <mail>)`, which could result in the following string: `irail/1.2.0 (irail.be; hello@irail.be)`. The use of a user agent string like this isn't obligated or enforced, but allows for better communication.
 - If you can't set the user agent string, at least be sure to follow us on [github](https://github.com/irail/irail), [website](https://hello.irail.be) or [gitter](https://gitter.im/iRail/iRail).
 
-::: note
-You can check the current status of the API at [status.irail.be](https://status.irail.be)
-:::
+## URI's
+
+The iRail API uses URI's ([Uniform Resource Identifications](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier)) to identify departures, stations, trains and occupancies. This way, there can be no misinterpretations. While there might be multiple meanings or interpretations possible for "Brussels South" (for example, the railway station, the airport, maybe the region south of Brussels), the URI http://irail.be/stations/NMBS/008814001 means the railway station Brussels south, and nothing else. The meaning of this URI doesn't change on other websites, API's, or datasets. URIs don't change often, and don't have to be human readable. They can change however, therefore they shouldn't be composed by the user, but should be retrieved from a previous response. 
+
+### URI's in use by the iRail API
+The following objects are identified by a URI:
+- Stations: every station has a URI, similar to http://irail.be/stations/NMBS/008814001, where 008814001 is based on an existing identifier used by the NMBS.
+- Vehicles: every vehicle has a URI, which identifies the trip at a certain time which is made by this vehicle. An example URI is http://irail.be/vehicle/IC532.
+- Departures: A departure is a certain train, leaving a certain station, at a certain day. The combination of these 3 fields is unique through time, which makes it perfect as an identifier. Example: http://irail.be/connections/8814001/20171002/IC532.
+
+## Bug reports
+You can report bugs in the api on [the API github repository](https://github.com/irail/irail/issues).
+You can report mistakes in the documentation on [the documentation github repository](https://github.com/irail/irail-docs/issues).
 
 <!-- include(stations.apib) -->
 <!-- include(liveboard.apib) -->
