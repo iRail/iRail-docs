@@ -1,0 +1,146 @@
+# Group Disturbances
+
+Retrieve information about current disturbances.
+
+## Disturbance API [/disturbances/{?format,lang}]
+
++ Parameters
+
+    <!-- include(fragments/parameters_format.apib) -->
+
+    <!-- include(fragments/parameters_lang.apib) -->
+
+
+### Retrieve the current disturbances [GET]
+
+Retrieve information about the current disturbances on the rail network. This data is sourced from the NMBS RSS feed, cleaned up and properly formatted.
+
++ Request Json
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Access-Control-Allow-Origin: "*"
+            cache-control: Public
+            etag: "e5e7c8ae25bb71cdfce80412c2b1be54"
+
+    + Body
+
+            
+
+            {
+              "version": "1.1",
+              "timestamp": "1509444463",
+              "disturbance": [
+                {
+                  "id": "0",
+                  "title": "Kalmthout: Freight train broken down.",
+                  "description": "Situation back to normal.",
+                  "link": "http:\/\/www.belgianrail.be\/jp\/sncb-nmbs-routeplanner\/help.exe\/en?tpl=showmap_external&tplParamHimMsgInfoGroup=trouble&message            ID=23851&channelFilter=custom2,livemap,rss_line_10,twitter,custom1,timetable&",
+                  "timestamp": "1509443931"
+                },
+                {
+                  "id": "1",
+                  "title": "Balegem-Dorp: Intervention emergency services (112).",
+                  "description": "Situation back to normal.",
+                  "link": "http:\/\/www.belgianrail.be\/jp\/sncb-nmbs-routeplanner\/help.exe\/en?tpl=showmap_external&tplParamHimMsgInfoGroup=trouble&message            ID=23854&channelFilter=custom2,livemap,rss_line_10,twitter,custom1,timetable&",
+                  "timestamp": "1509443873"
+                },
+                {
+                  "id": "2",
+                  "title": "Landen - Waremme: Signal failure.",
+                  "description": "Delayed train traffic. Disruption for an undetermined amount of time. Listen to the announcements in the train station.",
+                  "link": "http:\/\/www.belgianrail.be\/jp\/sncb-nmbs-routeplanner\/help.exe\/en?tpl=showmap_external&tplParamHimMsgInfoGroup=trouble&message            ID=23853&channelFilter=custom2,livemap,rss_line_10,twitter,custom1,timetable&",
+                  "timestamp": "1509442854"
+                },
+                {
+                  "id": "3",
+                  "title": "Arlon - Luxembourg (l): Signal failure.",
+                  "description": "Delayed train traffic. Disruption for an undetermined amount of time. Listen to the announcements in the train station.",
+                  "link": "http:\/\/www.belgianrail.be\/jp\/sncb-nmbs-routeplanner\/help.exe\/en?tpl=showmap_external&tplParamHimMsgInfoGroup=trouble&message            ID=23852&channelFilter=custom2,livemap,rss_line_10,twitter,custom1,timetable&",
+                  "timestamp": "1509442716"
+                },
+                {
+                  "id": "4",
+                  "title": "Louvain - Liege-Guillemins: IT problem",
+                  "description": "Due to an IT problem it isn't possible to get real time train information via the real time information search             engine.Please listen to the announcements made in the train or in the train station.",
+                  "link": "http:\/\/www.belgianrail.be\/jp\/sncb-nmbs-routeplanner\/help.exe\/en?tpl=showmap_external&tplParamHimMsgInfoGroup=trouble&message            ID=23798&channelFilter=custom2,livemap,rss_line_10,twitter,custom1,timetable&",
+                  "timestamp": "1509439215"
+                }
+              ]
+            }
+
++ Request XML
+
+    + Headers
+
+            Accept: application/xml
+
++ Response 200 (application/xml)
+
+    + Headers
+
+            Access-Control-Allow-Origin: "*"
+            cache-control: Public
+            etag: "e5e7c8ae25bb71cdfce80412c2b1be54"
+
+    + Body
+
+            
+            <disturbances version="1.1" timestamp="1509444584">
+                <disturbance id="0">
+                    <title>Kalmthout: Freight train broken down.</title>
+                    <description>
+                        <![CDATA[Situation back to normal.]]>
+                    </description>
+                    <link>
+                        <![CDATA[http://www.belgianrail.be/jp/sncb-nmbs-routeplanner/help.exe/en?tpl=showmap_external&tplParamHimMsgInfoGroup=trouble&message            ID=23851&channelFilter=custom2,livemap,rss_line_10,twitter,custom1,timetable&]]>
+                    </link>
+                    <timestamp>1509443931</timestamp>
+                </disturbance>
+                <disturbance id="1">
+                    <title>Balegem-Dorp: Intervention emergency services (112).</title>
+                    <description>
+                        <![CDATA[Situation back to normal.]]>
+                    </description>
+                    <link>
+                        <![CDATA[http://www.belgianrail.be/jp/sncb-nmbs-routeplanner/help.exe/en?tpl=showmap_external&tplParamHimMsgInfoGroup=trouble&message            ID=23854&channelFilter=custom2,livemap,rss_line_10,twitter,custom1,timetable&]]>
+                    </link>
+                    <timestamp>1509443873</timestamp>
+                </disturbance>
+                <disturbance id="2">
+                    <title>Landen - Waremme: Signal failure.</title>
+                    <description>
+                        <![CDATA[Delayed train traffic. Disruption for an undetermined amount of time. Listen to the announcements in the train station.]]>
+                    </description>
+                    <link>
+                        <![CDATA[http://www.belgianrail.be/jp/sncb-nmbs-routeplanner/help.exe/en?tpl=showmap_external&tplParamHimMsgInfoGroup=trouble&message            ID=23853&channelFilter=custom2,livemap,rss_line_10,twitter,custom1,timetable&]]>
+                    </link>
+                    <timestamp>1509442854</timestamp>
+                </disturbance>
+                <disturbance id="3">
+                    <title>Arlon - Luxembourg (l): Signal failure.</title>
+                    <description>
+                        <![CDATA[Delayed train traffic. Disruption for an undetermined amount of time. Listen to the announcements in the train station.]]>
+                    </description>
+                    <link>
+                        <![CDATA[http://www.belgianrail.be/jp/sncb-nmbs-routeplanner/help.exe/en?tpl=showmap_external&tplParamHimMsgInfoGroup=trouble&message            ID=23852&channelFilter=custom2,livemap,rss_line_10,twitter,custom1,timetable&]]>
+                    </link>
+                    <timestamp>1509442716</timestamp>
+                </disturbance>
+                <disturbance id="4">
+                    <title>Louvain - Liege-Guillemins: IT problem</title>
+                    <description>
+                        <![CDATA[Due to an IT problem it isn't possible to get real time train information via the real time information search             engine.Please listen to the announcements made in the train or in the train station.]]>
+                    </description>
+                    <link>
+                        <![CDATA[http://www.belgianrail.be/jp/sncb-nmbs-routeplanner/help.exe/en?tpl=showmap_external&tplParamHimMsgInfoGroup=trouble&message            ID=23798&channelFilter=custom2,livemap,rss_line_10,twitter,custom1,timetable&]]>
+                    </link>
+                    <timestamp>1509439215</timestamp>
+                </disturbance>
+            </disturbances>
