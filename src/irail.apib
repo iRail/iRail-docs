@@ -26,10 +26,10 @@ If you build an application on top of the iRail api, be sure to do at least one 
 
 ## URIs
 
-The iRail API uses URIs ([Uniform Resource Identifications](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier)) to identify departures, stations, trains and occupancies. This way, there can be no misinterpretations. While there might be multiple meanings or interpretations possible for "Brussels South" (for example, the railway station, the airport, maybe the region south of Brussels), the URI http://irail.be/stations/NMBS/008814001 means the railway station Brussels south, and nothing else. The meaning of this URI doesn't change on other websites, API's, or datasets. URIs don't change often, and don't have to be human readable. They can change however, therefore they shouldn't be composed by the user, but should be retrieved from a previous response. 
+The iRail API uses URIs ([Uniform Resource Identifications](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier)) to identify departures, stations, trains and occupancies. This way, there can be no misinterpretations. While there might be multiple meanings or interpretations possible for "Brussels South" (for example, the railway station, the airport, maybe the region south of Brussels), the URI http://irail.be/stations/NMBS/008814001 means the railway station Brussels south, and nothing else. The meaning of this URI doesn't change on other websites, APIs, or datasets. URIs don't change often, and don't have to be human readable. They can change however, therefore they shouldn't be composed by the user, but should be retrieved from a previous response. 
 
 ::: note
-URI's are ids, just like numeric ids. While in this case they represent a URL, these URLs do not make part of the API! All API requests go to https://api.irail.be! Ids can be used on any domain, but if the id is the same url, you know that the objects represent the same thing, even if they are in different api's or applications.
+URI's are ids, just like numeric ids. While in this case they represent a URL, these URLs do not make part of the API! All API requests go to https://api.irail.be! Ids can be used on any domain, but if the id is the same url, you know that the objects represent the same thing, even if they are in different APIs or applications.
 :::
 ### URIs in use by the iRail API
 
