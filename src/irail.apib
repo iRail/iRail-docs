@@ -38,6 +38,17 @@ The following objects are identified by a URI:
 - Vehicles: every vehicle has a URI, which identifies the trip at a certain time which is made by this vehicle. An example URI is http://irail.be/vehicle/IC532.
 - Departures: A departure is a certain train, leaving a certain station, at a certain day. The combination of these 3 fields is unique through time, which makes it perfect as an identifier. Example: http://irail.be/connections/8814001/20171002/IC532.
 
+## Caching
+The API supports caching and [conditional get requests](https://developer.mozilla.org/en-US/docs/Web/HTTP/Conditional_requests). Conditional get requests allow you to tell the server which version of the data you have. If there is newer data available, the server will return an HTTP 200 status code along with the new data. If no new data is available, the server will return an HTTP 304 Not Modified status code, along with an empty body. 
+The benefits of caching are less data transfer, and faster responses in case of a 304 response.
+
+#### Supported request headers
+- [If-None-Match](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/If-None-Match)
+
+#### Supported response headers
+- [Etag](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/ETag)
+- [Cache-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control)
+
 ## Bug reports
 You can report bugs in the api on [the API github repository](https://github.com/irail/irail/issues).
 You can report mistakes in the documentation on [the documentation github repository](https://github.com/irail/irail-docs/issues).
@@ -49,7 +60,7 @@ You can report mistakes in the documentation on [the documentation github reposi
 <!-- include(disturbances.apib) -->
 <!-- include(occupancy.apib) -->
 <!-- include(logs.apib) -->
-
+<!-- include(data.apib) -->
 
 # Data Structures
 

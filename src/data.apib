@@ -1,0 +1,13 @@
+# Group Log and Feedback data
+Feedback about train occupancy, as well as information on which requests were made to the iRail API, are publicly available.
+Every night around 3:00, this information is uploaded to the following folders:
+- https://gtfs.irail.be/feedback/
+- https://gtfs.irail.be/logs/
+
+Everyone is free to scrape these folders in order to obtain data over multiple days.
+
+## Feedback
+Feedback data is formatted using JSON syntax, and is created by mongoexport. You can either directly process this data or use mongoimport to import this data into your own database. 
+
+## Logs
+Logs are formatted using JSON syntax. While the formatting could change without prior notice, this is extremely unlikely.

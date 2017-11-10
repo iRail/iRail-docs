@@ -4,6 +4,11 @@ Retrieve information about a vehicle.
 
 ## Vehicle API [/vehicle/{?id,date,fast,format,lang,alerts}]
 
+::: note
+#### As of November 2017, the following data has been added:
+- isExtraStop indicates that this stop was not part of the original planned route, but was added last-minute by trafic control.
+:::
+
 ::: warning
 #### <i class="fa fa-warning"></i> Be aware
 Trying to query data way in the past, or way in the future, might result in error 500 responses. If you're not sure what causes an error 500 response, be sure to check if your query works for the current day, or if the NMBS website has the data for the date you want to look up.
@@ -123,7 +128,7 @@ Retrieve information about a vehicle (train), including stops, occupancy, curren
             <vehicleinformation version="1.1" timestamp="1505995100">
                 <vehicle locationX="3.216726" locationY="51.197226" shortname="IC1832" URI="http://irail.be/vehicle/IC1832">BE.NMBS.IC1832</vehicle>
                 <stops number="10">
-                    <stop id="0" delay="240" canceled="0" left="1">
+                    <stop id="0" delay="240" canceled="0" left="1" isExtraStop="0">
                         <station id="BE.NMBS.008821006" locationX="4.421101" locationY="51.2172" URI="http://irail.be/stations/NMBS/008821006" standardname="Antwerpen-Centraal">Antwerp-Central</station>
                         <time formatted="2017-09-21T11:06:00">1505984760</time>
                         <platform normal="1">1</platform>

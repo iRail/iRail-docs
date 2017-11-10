@@ -13,6 +13,10 @@ Retrieve information about current disturbances.
 
 ### Retrieve the current disturbances [GET]
 
+::: note
+As of November 2017, additional measures have been taken to improve reliability of this endpoint, even if the original NMBS RSS feed is not available. During short RSS or NMBS website outages, this endpoint should keep providing the last known status.
+:::
+
 Retrieve information about the current disturbances on the rail network. This data is sourced from the NMBS RSS feed, cleaned up and properly formatted.
 
 + Request Json
@@ -30,8 +34,6 @@ Retrieve information about the current disturbances on the rail network. This da
             etag: "e5e7c8ae25bb71cdfce80412c2b1be54"
 
     + Body
-
-            
 
             {
               "version": "1.1",

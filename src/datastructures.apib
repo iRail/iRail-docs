@@ -28,8 +28,9 @@
 + departureDelay: 0 (number, required) - The departure delay, in seconds
 + departureCanceled: 0 (number, required) - Whether or not this departure has been cancelled
 + scheduledDepartureTime: 1489658760 (number, required) - The unix timestamp, expressed as seconds since January 1st 1970
-+ arrivalDelay: 0 (number, required)
-+ arrivalCanceled: 0 (number, required)
++ arrivalDelay: 0 (number, required) - The arrival delay, in seconds.
++ arrivalCanceled: 0 (number, required) - Whether or not the arrival on this stop is canceled
++ isExtraStop: 0 (number, required) - Whether or not this is an extra stop which isn't in the original route for train
 + scheduledArrivalTime: 1489658760 (number, required) - The unix timestamp, expressed as seconds since January 1st 1970
 + departureConnection: `http://irail.be/connections/8821006/20170316/IC3033` (string, required) - The identifier for this specific departure. Always copy this identifier, never try to compose it yourself, as it might change without warning.
 + occupancy (Occupancy, optional) - The occupancy on this train. This data is only available in a limited timespan, and won't be included for trains in the far future.
@@ -101,6 +102,7 @@
 + departure (ConnectionDeparture)
 + arrival (ConnectionArrival)
 + duration: 3240 (number, required) - The total duration of this connection, in seconds
++ alerts (Alerts, required)
 + vias (object)
     + number: 1 (number, required) - The number of vias (transfers) in this connection
     + via (array[Via], required)
@@ -115,9 +117,12 @@
 + vehicleinfo (VehicleInfo, required)
 + platform: 4 (number, required) - The platform from which this train will depart
 + platforminfo (PlatformInfo, required)
++ left: 0 (number, required) - Whether or not this train has left
 + canceled: 0 (number, required) - Whether or not this train has been cancelled
 + direction (object, required)
     + name : `Mechelen` (string, required)
++ alerts (Alerts, required)
++ walking: 0 (number, required) - Whether or not this is a walking part
 + departureConnection: `http://irail.be/connections/8821006/20170316/IC1832` (string, required) - //TODO: document
 
 ## ConnectionArrival (object)
@@ -130,7 +135,9 @@
 + vehicleinfo (VehicleInfo, required)
 + platform: 4 (number, required) - The platform from which this train will depart
 + platforminfo (PlatformInfo, required)
++ arrived: 0 (number, required) - Whether or not this train has arrived
 + canceled: 0 (number, required) - Whether or not this train has been cancelled
++ walking: 0 (number, required) - Whether or not this is a walking part
 + direction (object, required)
     + name : `Mechelen` (string, required)
 
@@ -142,19 +149,24 @@
     + time: 1497783600 (number, required) - The unix timestamp, expressed as seconds since January 1st 1970    
     + platform: 4 (number, required) - The platform from which this train will depart
     + platforminfo (PlatformInfo, required)
+    + arrived: 0 (number, required) - Whether or not this train has arrived
     + delay: 0 (number, required) - The arrival delay, in seconds
     + canceled: 0 (number, required) - Whether or not this train has been cancelled
     + vehicle: `BE.NMBS.IC3033` (string, required)
+    + walking: 0 (number, required) - Whether or not this is a walking part
     + direction (object, required)
         + name : `Mechelen` (string, required)
 + departure    
     + time: 1497783600 (number, required) - The unix timestamp, expressed as seconds since January 1st 1970    
     + platform: 4 (number, required) - The platform from which this train will depart
     + platforminfo (PlatformInfo, required)
+    + left: 0 (number, required) - Whether or not this train has left
     + delay: 0 (number, required) - The departure delay, in seconds
     + canceled: 0 (number, required) - Whether or not this train has been cancelled
     + departureConnection: `http://irail.be/connections/8821006/20170316/IC1832` (string, required) - //TODO: document
     + vehicle: `BE.NMBS.IC3033` (string, required)
+    + walking: 0 (number, required) - Whether or not this is a walking part
+    + alerts (Alerts, required)
     + direction (object, required)
         + name : `Mechelen` (string, required)
 + timeBetween: 360 (number, required) - The time between the arrival and departure at the transfer station, in seconds
@@ -163,3 +175,15 @@
 + vehicle: `BE.NMBS.IC3033` (string, required)
 + direction (object, required)
     + name : `Mechelen` (string, required)
+
+## Alerts (object)
++ number: 1 (number, required) - The number of alerts in this list
++ alert (array[Alert],required)
+
+## Alert (object)
++ id: 0 (number, required)
++ header: `L 50: We are conducting work for you between Ghent and Aalst.` (string, required)
++ lead: `We are conducting work for you between Ghent and Aalst` (string, required)
++ link: `http%3A%2F%2Fwww.belgianrail.be%2Fjp%2Fdownload%2Fbrail_him%2F1509444366969_NL-11015.pdf` (string, required)
++ startTime: 1509441420 (number, optional) - The start time as unix timestamp, expressed as seconds since January 1st 1970    
++ endTime: 1510527540 (number, optional) - The end time as unix timestamp, expressed as seconds since January 1st 1970    

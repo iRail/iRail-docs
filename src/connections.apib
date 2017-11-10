@@ -4,6 +4,19 @@ Get routes between two stations, including realtime data on delays.
 
 ## Connections API [/connections/{?from,to,date,time,timesel,format,lang,fast,typeOfTransport,alerts,results}]
 
+::: note
+#### As of November 2017, the following data has been added:
+- Alerts for each part of a connection
+- Left and Arrived attributes for resp. connection departures and arrivals
+:::
+
+::: note
+Alerts are now available in the following ways:
+- connection: These are all alerts for this connection object. Each alert is unique.
+- departure, via departure: These are the alerts for the train which departed
+Even though this might duplicate data, this allows anyone to process it easily. Thanks to gzip compression this won't affect the transferred data size.
+:::
+
 ::: warning
 #### <i class="fa fa-warning"></i> Be aware
 Trying to query data way in the past, or way in the future, might result in error 500 responses. If you're not sure what causes an error 500 response, be sure to check if your query works for the current day, or if the NMBS website has the data for the date you want to look up.
@@ -28,9 +41,9 @@ Trying to query data way in the past, or way in the future, might result in erro
             + nointernationaltrains
             + all
 
-    + alerts: `false`(boolean, optional) - Wether or not to include alerts about a route in the response. This could be railworks etc, announced on the NMBS website.
+    + alerts: `false`(boolean, optional) - (Deprecated) Wether or not to include alerts about a route in the response. This could be railworks etc, announced on the NMBS website. **Note: alerts are now always included**
 
-    + results: 6 (number, optional) - The number of results to return. Default value is 6. This might be used as a guideline for the server, but there is no guarantee the server will return this exact amount of results!
+    + results: 6 (number, optional) - (Deprecated) The number of results to return. Default value is 6. This might be used as a guideline for the server, but there is no guarantee the server will return this exact amount of results!
 
     <!-- include(fragments/parameters_time.apib) -->
 
@@ -279,7 +292,7 @@ Trying to query data way in the past, or way in the future, might result in erro
 
             <connections version="1.1" timestamp="1506352987">
                 <connection id="0">
-                    <departure delay="0" canceled="0">
+                    <departure delay="0" canceled="0" walking="0" left="0">
                         <station id="BE.NMBS.008892007" locationX="3.710675" locationY="51.035896" URI="http://irail.be/stations/NMBS/008892007" standardname="Gent-Sint-Pieters">Ghent-Sint-Pieters</station>
                         <time formatted="2017-09-25T13:40:00">1506339600</time>
                         <vehicle>BE.NMBS.IC1512</vehicle>
@@ -287,19 +300,51 @@ Trying to query data way in the past, or way in the future, might result in erro
                         <direction>Genk</direction>
                         <departureConnection>http://irail.be/connections/8892007/20170925/IC1512</departureConnection>
                         <occupancy URI="http://api.irail.be/terms/unknown">unknown</occupancy>
+                        <alerts number="1">
+                            <alert id="0">
+                                <header>
+                                    <![CDATA[L 50: We are conducting work for you between Aalst and Aalst.]]>
+                                </header>
+                                <description>
+                                    <![CDATA[We are conducting work for you between Aalst and Aalst. Detailed information only available in French (FR) and             in Dutch (NL).]]>
+                                </description>
+                                <lead>We are conducting work for you between Aalst and Aalst.</lead>
+                                <link>
+                                    <![CDATA[http%3A%2F%2Fwww.belgianrail.be%2Fjp%2Fdownload%2Fbrail_him%2F1509444366969_NL-11015.pdf]]>
+                                </link>
+                                <startTime formatted="2017-10-31T10:17:00">1509441420</startTime>
+                                <endTime formatted="2017-11-12T23:59:00">1510527540</endTime>
+                            </alert>
+                        </alerts>
                     </departure>
-                    <arrival delay="420" canceled="0">
+                    <arrival delay="420" canceled="0" walking="0" arrived="0">
                         <station id="BE.NMBS.008832375" locationX="5.350226" locationY="50.954841" URI="http://irail.be/stations/NMBS/008832375" standardname="Kiewit">Kiewit</station>
                         <time formatted="2017-09-25T15:42:00">1506346920</time>
                         <vehicle>BE.NMBS.IC1512</vehicle>
                         <platform normal="1">2</platform>
                         <direction>Genk</direction>
                     </arrival>
+                    <alerts number="1">
+                            <alert id="0">
+                                <header>
+                                    <![CDATA[L 50: We are conducting work for you between Aalst and Aalst.]]>
+                                </header>
+                                <description>
+                                    <![CDATA[We are conducting work for you between Aalst and Aalst. Detailed information only available in French (FR) and             in Dutch (NL).]]>
+                                </description>
+                                <lead>We are conducting work for you between Aalst and Aalst.</lead>
+                                <link>
+                                    <![CDATA[http%3A%2F%2Fwww.belgianrail.be%2Fjp%2Fdownload%2Fbrail_him%2F1509444366969_NL-11015.pdf]]>
+                                </link>
+                                <startTime formatted="2017-10-31T10:17:00">1509441420</startTime>
+                                <endTime formatted="2017-11-12T23:59:00">1510527540</endTime>
+                            </alert>
+                        </alerts>
                     <duration>7320</duration>
                     <occupancy URI="http://api.irail.be/terms/unknown">unknown</occupancy>
                 </connection>
                 <connection id="1">
-                    <departure delay="60" canceled="0">
+                    <departure delay="60" canceled="0" walking="0" left="0">
                         <station id="BE.NMBS.008892007" locationX="3.710675" locationY="51.035896" URI="http://irail.be/stations/NMBS/008892007" standardname="Gent-Sint-Pieters">Ghent-Sint-Pieters</station>
                         <time formatted="2017-09-25T13:40:00">1506339600</time>
                         <vehicle>BE.NMBS.IC2213</vehicle>
@@ -308,7 +353,7 @@ Trying to query data way in the past, or way in the future, might result in erro
                         <departureConnection>http://irail.be/connections/8892007/20170925/IC2213</departureConnection>
                         <occupancy URI="http://api.irail.be/terms/unknown">unknown</occupancy>
                     </departure>
-                    <arrival delay="0" canceled="0">
+                    <arrival delay="0" canceled="0" walking="0" arrived="0">
                         <station id="BE.NMBS.008832375" locationX="5.350226" locationY="50.954841" URI="http://irail.be/stations/NMBS/008832375" standardname="Kiewit">Kiewit</station>
                         <time formatted="2017-09-25T16:24:00">1506349440</time>
                         <vehicle>BE.NMBS.P2366</vehicle>
@@ -318,14 +363,14 @@ Trying to query data way in the past, or way in the future, might result in erro
                     <duration>9840</duration>
                     <vias number="1">
                         <via id="0">
-                            <arrival delay="120" canceled="0">
+                            <arrival delay="120" canceled="0" walking="0" arrived="0">
                                 <time formatted="2017-09-25T15:49:00">1506347340</time>
                                 <platform normal="1">2</platform>
                                 <direction>Tongeren</direction>
                                 <vehicle>BE.NMBS.IC2213</vehicle>
                                 <departureConnection>http://irail.be/connections/8831005/20170925/IC2213</departureConnection>
                             </arrival>
-                            <departure delay="60" canceled="0">
+                            <departure delay="60" canceled="0" walking="0" left="0">
                                 <time formatted="2017-09-25T16:16:00">1506348960</time>
                                 <platform normal="1">8</platform>
                                 <direction>Genk</direction>
