@@ -22,6 +22,13 @@ Even though this might duplicate data, this allows anyone to process it easily. 
 Trying to query data way in the past, or way in the future, might result in error 500 responses. If you're not sure what causes an error 500 response, be sure to check if your query works for the current day, or if the NMBS website has the data for the date you want to look up.
 :::
 
+
+#### Handling a walking via
+In some cases, there might be a walking part in a route. This happens for example when a user arrives in Haren-Zuid and has a next train in Haren, only a few hundred meters further.
+- For walking parts, don't attempt to parse train ids or destinations.
+- Don't exclude routes which contain walking parts by default, but feel free to give users the option to do so. For example the route Aarschot-Meiser has a small walking part, whereas avoiding that walking part will cause the user to arrive significantly earlier or later.
+- Walking parts won't be the first or last part of a route. They can only occur between vias.
+
 + Parameters
 
     + from: `Gent-Sint-Pieters` (string, required) - The name or id of the station of departure.

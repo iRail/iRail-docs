@@ -301,6 +301,19 @@ Even though this might duplicate data, this allows anyone to process it easily. 
 <h4 id="header-be-aware-2"><i class="fa fa-warning"></i> Be aware <a class="permalink" href="#header-be-aware-2" aria-hidden="true">¶</a></h4>
 <p>Trying to query data way in the past, or way in the future, might result in error 500 responses. If you’re not sure what causes an error 500 response, be sure to check if your query works for the current day, or if the NMBS website has the data for the date you want to look up.</p>
 </div>
+<h4 id="header-handling-a-walking-via">Handling a walking via <a class="permalink" href="#header-handling-a-walking-via" aria-hidden="true">¶</a></h4>
+<p>In some cases, there might be a walking part in a route. This happens for example when a user arrives in Haren-Zuid and has a next train in Haren, only a few hundred meters further.</p>
+<ul>
+<li>
+<p>For walking parts, don’t attempt to parse train ids or destinations.</p>
+</li>
+<li>
+<p>Don’t exclude routes which contain walking parts by default, but feel free to give users the option to do so. For example the route Aarschot-Meiser has a small walking part, whereas avoiding that walking part will cause the user to arrive significantly earlier or later.</p>
+</li>
+<li>
+<p>Walking parts won’t be the first or last part of a route. They can only occur between vias.</p>
+</li>
+</ul>
 </div></div><div class="right"><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/connections/?<span class="hljs-attribute">from=</span><span class="hljs-literal">Gent-Sint-Pieters</span>&<span class="hljs-attribute">to=</span><span class="hljs-literal">Mechelen</span>&<span class="hljs-attribute">date=</span><span class="hljs-literal">300917</span>&<span class="hljs-attribute">time=</span><span class="hljs-literal">1230</span>&<span class="hljs-attribute">timesel=</span><span class="hljs-literal">departure</span>&<span class="hljs-attribute">format=</span><span class="hljs-literal">json</span>&<span class="hljs-attribute">lang=</span><span class="hljs-literal">en</span>&<span class="hljs-attribute">fast=</span><span class="hljs-literal">false</span>&<span class="hljs-attribute">typeOfTransport=</span><span class="hljs-literal">trains</span>&<span class="hljs-attribute">alerts=</span><span class="hljs-literal">false</span>&<span class="hljs-attribute">results=</span><span class="hljs-literal">6</span></span></div><div class="tabs"><div class="example-names"><span>Requests</span><span class="tab-button">Json</span><span class="tab-button">XML</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Accept</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div></div></div><div class="tabs"><div class="example-names"><span>Responses</span><span class="tab-button">200</span><span class="tab-button">400</span><span class="tab-button">404</span><span class="tab-button">500</span></div><div class="tab"><div><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span><br><span class="hljs-attribute">Access-Control-Allow-Origin</span>: <span class="hljs-string">"*"</span><br><span class="hljs-attribute">cache-control</span>: <span class="hljs-string">Public</span><br><span class="hljs-attribute">etag</span>: <span class="hljs-string">"e5e7c8ae25bb71cdfce80412c2b1be54"</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
   "<span class="hljs-attribute">version</span>": <span class="hljs-value"><span class="hljs-string">"1.1"</span></span>,
   "<span class="hljs-attribute">timestamp</span>": <span class="hljs-value"><span class="hljs-number">1489622781</span></span>,
