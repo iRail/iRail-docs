@@ -24,6 +24,30 @@ If you build an application on top of the iRail api, be sure to do at least one 
 - If possible, set the user-agent header string. Include the name of your application, and a way to contact you in case something would go wrong. An example user agent string format is `<application name>/<application version> (<website>; <mail>)`, which could result in the following string: `irail/1.2.0 (irail.be; hello@irail.be)`. The use of a user agent string like this isn't obligated or enforced, but allows for better communication.
 - If you can't set the user agent string, at least be sure to follow us on [github](https://github.com/irail/irail), [website](https://hello.irail.be) or [gitter](https://gitter.im/iRail/iRail).
 
+## Request limits
+You can make up to 3 requests per second per source IP address. Every IP address also has 5 burst requests, meaning you can either have 8 requests
+in 1 second or 15 requests in 3 seconds, but you will need to drop below 3 requests per second in order for these burst requests to refill.
+
+Exceeding the request limit will cause the server to return 503 responses. 
+
+::: note
+Request limits are set so everyone can enjoy open transport data with high availability and fast response times. Please don't use excessive polling: always optimise your application, even when you're not reaching our request limitations (yet). We include HTTP headers to signal how long our data is valid, please refrain from making the same request again before this period has elapsed.
+:::
+
+::: note
+Are you limited by our request limits? Get in touch to see if we can work out a better request strategy together.
+:::
+
+::: warning
+Always undertake action when your application receives frequent "503 Too Many Requests" responses!
+When your application causes too much requests, one of the following actions will happen
+ 
+ - When the user agent is set, we will contact the developers at the provided e-mail address or website. In case of excessive requests for a long period of time (e.g. multiple 503 responses per second for more than 3 hours), your application might be blocked before we receive a response. We will still contact you to assist with resolving the issue and increasing the efficiency of your requests.
+
+ - When no user agent is set, the source IP address will be blocked without prior warnings. If your IP address is blocked, please contact the iRail team to resolve this.
+
+:::
+
 ## URIs
 
 The iRail API uses URIs ([Uniform Resource Identifications](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier)) to identify departures, stations, trains and occupancies. This way, there can be no misinterpretations. While there might be multiple meanings or interpretations possible for "Brussels South" (for example, the railway station, the airport, maybe the region south of Brussels), the URI http://irail.be/stations/NMBS/008814001 means the railway station Brussels south, and nothing else. The meaning of this URI doesn't change on other websites, APIs, or datasets. URIs don't change often, and don't have to be human readable. They can change however, therefore they shouldn't be composed by the user, but should be retrieved from a previous response. 

@@ -19,7 +19,7 @@ Before proceeding, the following software should be present on your system:
 
 To install aglio, run
 
-    npm install -g aglio
+    npm install -g aglio --unsafe-perm=true
 
 ### Rendering the documentation
 
