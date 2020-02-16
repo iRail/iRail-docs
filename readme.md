@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/16533623-b7a8-4833-b64a-c378bbb1899b/deploy-status)](https://app.netlify.com/sites/irail-docs/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/16533623-b7a8-4833-b64a-c378bbb1899b/deploy-status)](https://docs.irail.be)
 
 # iRail-docs
 
