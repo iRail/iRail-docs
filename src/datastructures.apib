@@ -77,7 +77,7 @@
 + platforminfo (PlatformInfo, required)
 + canceled: 0 (number, required) - Whether or not this train has been cancelled
 + left: 0 (number, required) - Whether or not this train has been left the station
-+ departureConnection: `http://irail.be/connections/8821006/20170316/IC1832` (string, required) - //TODO: document
++ departureConnection: `http://irail.be/connections/8821006/20170316/IC1832` (string, required) - A unique URI for this departure
 + occupancy (Occupancy, optional) - The occupancy on this train. This data is only available in a limited timespan, and won't be included for trains in the far future.
 
 ## VehicleInfo (object)
@@ -121,9 +121,10 @@
 + canceled: 0 (number, required) - Whether or not this train has been cancelled
 + direction (object, required)
     + name : `Mechelen` (string, required)
++ stops (IntermediateStops, required) - The intermediate stops between this departure and the next arrival
 + alerts (Alerts, required)
 + walking: 0 (number, required) - Whether or not this is a walking part
-+ departureConnection: `http://irail.be/connections/8821006/20170316/IC1832` (string, required) - //TODO: document
++ departureConnection: `http://irail.be/connections/8821006/20170316/IC1832` (string, required) - A unique URI for this departure
 
 ## ConnectionArrival (object)
 
@@ -163,12 +164,13 @@
     + left: 0 (number, required) - Whether or not this train has left
     + delay: 0 (number, required) - The departure delay, in seconds
     + canceled: 0 (number, required) - Whether or not this train has been cancelled
-    + departureConnection: `http://irail.be/connections/8821006/20170316/IC1832` (string, required) - //TODO: document
+    + departureConnection: `http://irail.be/connections/8821006/20170316/IC1832` (string, required) - A unique URI for this departure
     + vehicle: `BE.NMBS.IC3033` (string, required)
     + walking: 0 (number, required) - Whether or not this is a walking part
     + alerts (Alerts, required)
     + direction (object, required)
         + name : `Mechelen` (string, required)
+    + stops (IntermediateStops, required) - The intermediate stops between this departure and the next arrival
 + timeBetween: 360 (number, required) - The time between the arrival and departure at the transfer station, in seconds
 + station: `Antwerp-Central` (string, required)
 + stationinfo (Station, optional)
@@ -186,4 +188,24 @@
 + lead: `We are conducting work for you between Ghent and Aalst` (string, required)
 + link: `http%3A%2F%2Fwww.belgianrail.be%2Fjp%2Fdownload%2Fbrail_him%2F1509444366969_NL-11015.pdf` (string, required)
 + startTime: 1509441420 (number, optional) - The start time as unix timestamp, expressed as seconds since January 1st 1970    
-+ endTime: 1510527540 (number, optional) - The end time as unix timestamp, expressed as seconds since January 1st 1970    
++ endTime: 1510527540 (number, optional) - The end time as unix timestamp, expressed as seconds since January 1st 1970
+
+## IntermediateStops (object)
++ number: 1 (number, required) - The number of stops in this list
++ stop (array[IntermediateStop],required)
+
+## IntermediateStop (object)
++ id: 0 (number, required) - The index of this stop in an array of stops
++ station: `Antwerp-central` (string, required) - The name of this station as returned by the nmbs
++ stationinfo (Station, optional)
++ time: 1489658760 (number, required) - The unix timestamp, expressed as seconds since January 1st 1970
++ delay: 0 (number, required) - (Deprecated) The departure delay, in seconds. Use departureDelay instead.
++ canceled: 0 (number, required) - Whether or not this train has been cancelled
++ departureDelay: 0 (number, required) - The departure delay, in seconds
++ departureCanceled: 0 (number, required) - Whether or not this departure has been cancelled
++ scheduledDepartureTime: 1489658760 (number, required) - The unix timestamp, expressed as seconds since January 1st 1970
++ arrivalDelay: 0 (number, required) - The arrival delay, in seconds.
++ arrivalCanceled: 0 (number, required) - Whether or not the arrival on this stop is canceled
++ isExtraStop: 0 (number, required) - Whether or not this is an extra stop which isn't in the original route for train
++ scheduledArrivalTime: 1489658760 (number, required) - The unix timestamp, expressed as seconds since January 1st 1970
++ departureConnection: `http://irail.be/connections/8821006/20170316/IC3033` (string, required) - The identifier for this specific departure. Always copy this identifier, never try to compose it yourself, as it might change without warning.
