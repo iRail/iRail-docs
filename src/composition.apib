@@ -1,0 +1,306 @@
+# Group Composition
+
+Retrieve information about current disturbances.
+
+## Composition API [/composition/{?format,id,data,lang}]
+
++ Parameters
+    + id: 'S51507' (string, required) - The ID of the train for which you want to fetch the composition.
+
+    <!-- include(fragments/parameters_format.apib) -->
+
+    <!-- include(fragments/parameters_lang.apib) -->
+
+    + data: '' (enum[string], optional) - By default we filter a list of fields which we guarantee to be present in every response. Set this parameter to 'all' in order to get all raw unfiltered data as iRail fetches it from the NMBS.
+    These extra fields allow you to use any data instead of our "curated" list of useful fields, but come without any guarantees. Let us know if you'd like to see a raw field added to the "normal" stable output.
+        + Default: ''
+        + Members
+            + ''
+            + all
+
+### Retrieve the Composition for a train [GET]
+
+::: note
+This endpoint is new and hard to test as we need to compare the data with reality. Create a bug report at [our Github issue tracker](https://github.com/iRail/iRail/issues) if you find a bug.
+:::
+
+::: warning
+We are aware of an issue with the origin and destination fields. Unfortunately this is a bug in the source data which we cannot fix at this moment.
+:::
+
+Retrieve the composition of a train. This means a list of all carriages and locomotives with their properties.
+
++ Request Json
+
+    + Headers
+
+            Accept: application/json
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Access-Control-Allow-Origin: "*"
+            cache-control: Public
+            etag: "e5e7c8ae25bb71cdfce80412c2b1be54"
+
+    + Body
+
+            {
+              "version": "1.1",
+              "timestamp": "1581856899",
+              "composition": {
+                "segments": {
+                  "number": "1",
+                  "segment": [
+                    {
+                      "id": "0",
+                      "origin": {
+                        "locationX": "4.071825",
+                        "locationY": "50.891925",
+                        "id": "BE.NMBS.008895802",
+                        "name": "Denderleeuw",
+                        "@id": "http:\/\/irail.be\/stations\/NMBS\/008895802",
+                        "standardname": "Denderleeuw"
+                      },
+                      "destination": {
+                        "locationX": "4.071825",
+                        "locationY": "50.891925",
+                        "id": "BE.NMBS.008895802",
+                        "name": "Denderleeuw",
+                        "@id": "http:\/\/irail.be\/stations\/NMBS\/008895802",
+                        "standardname": "Denderleeuw"
+                      },
+                      "composition": {
+                        "source": "Itris",
+                        "units": {
+                          "number": "3",
+                          "unit": [
+                            {
+                              "id": "0",
+                              "materialType": {
+                                "parent_type": "AM08M",
+                                "sub_type": "c",
+                                "orientation": "LEFT"
+                              },
+                              "hasToilets": "1",
+                              "hasTables": "1",
+                              "hasSecondClassOutlets": "1",
+                              "hasFirstClassOutlets": "1",
+                              "hasHeating": "1",
+                              "hasAirco": "1",
+                              "materialNumber": "8112",
+                              "tractionType": "AM\/MR",
+                              "canPassToNextUnit": "0",
+                              "standingPlacesSecondClass": "27",
+                              "standingPlacesFirstClass": "9",
+                              "seatsCoupeSecondClass": "0",
+                              "seatsCoupeFirstClass": "0",
+                              "seatsSecondClass": "76",
+                              "seatsFirstClass": "16",
+                              "lengthInMeter": "27",
+                              "hasSemiAutomaticInteriorDoors": "1",
+                              "hasLuggageSection": "0",
+                              "materialSubTypeName": "AM08M_c",
+                              "tractionPosition": "1",
+                              "hasPrmSection": "1",
+                              "hasPriorityPlaces": "1",
+                              "hasBikeSection": "1"
+                            },
+                            {
+                              "id": "1",
+                              "materialType": {
+                                "parent_type": "AM08M",
+                                "sub_type": "b",
+                                "orientation": "LEFT"
+                              },
+                              "hasToilets": "0",
+                              "hasTables": "1",
+                              "hasSecondClassOutlets": "1",
+                              "hasFirstClassOutlets": "1",
+                              "hasHeating": "1",
+                              "hasAirco": "1",
+                              "materialNumber": "8112",
+                              "tractionType": "AM\/MR",
+                              "canPassToNextUnit": "0",
+                              "standingPlacesSecondClass": "40",
+                              "standingPlacesFirstClass": "0",
+                              "seatsCoupeSecondClass": "0",
+                              "seatsCoupeFirstClass": "0",
+                              "seatsSecondClass": "104",
+                              "seatsFirstClass": "0",
+                              "lengthInMeter": "27",
+                              "hasSemiAutomaticInteriorDoors": "1",
+                              "hasLuggageSection": "0",
+                              "materialSubTypeName": "AM08M_b",
+                              "tractionPosition": "1",
+                              "hasPrmSection": "0",
+                              "hasPriorityPlaces": "1",
+                              "hasBikeSection": "0"
+                            },
+                            {
+                              "id": "2",
+                              "materialType": {
+                                "parent_type": "AM08M",
+                                "sub_type": "a",
+                                "orientation": "RIGHT"
+                              },
+                              "hasToilets": "0",
+                              "hasTables": "1",
+                              "hasSecondClassOutlets": "1",
+                              "hasFirstClassOutlets": "1",
+                              "hasHeating": "1",
+                              "hasAirco": "1",
+                              "materialNumber": "8112",
+                              "tractionType": "AM\/MR",
+                              "canPassToNextUnit": "0",
+                              "standingPlacesSecondClass": "37",
+                              "standingPlacesFirstClass": "9",
+                              "seatsCoupeSecondClass": "0",
+                              "seatsCoupeFirstClass": "0",
+                              "seatsSecondClass": "68",
+                              "seatsFirstClass": "16",
+                              "lengthInMeter": "27",
+                              "hasSemiAutomaticInteriorDoors": "1",
+                              "hasLuggageSection": "0",
+                              "materialSubTypeName": "AM08M_a",
+                              "tractionPosition": "1",
+                              "hasPrmSection": "0",
+                              "hasPriorityPlaces": "1",
+                              "hasBikeSection": "0"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+
++ Request XML
+
+    + Headers
+
+            Accept: application/xml
+
++ Response 200 (application/xml)
+
+    + Headers
+
+            Access-Control-Allow-Origin: "*"
+            cache-control: Public
+            etag: "e5e7c8ae25bb71cdfce80412c2b1be54"
+
+    + Body
+
+            
+            <composition version="1.1" timestamp="1581856816">
+                <composition>
+                    <segments number="1">
+                        <segment id="0">
+                            <origin locationX="4.071825" locationY="50.891925" id="BE.NMBS.008895802"
+                                    URI="http://irail.be/stations/NMBS/008895802" standardname="Denderleeuw">Denderleeuw
+                            </origin>
+                            <destination locationX="4.071825" locationY="50.891925" id="BE.NMBS.008895802"
+                                         URI="http://irail.be/stations/NMBS/008895802" standardname="Denderleeuw">Denderleeuw
+                            </destination>
+                            <composition>
+                                <source>Itris</source>
+                                <units number="3">
+                                    <unit id="0">
+                                        <materialType>
+                                            <parent_type>AM08M</parent_type>
+                                            <sub_type>c</sub_type>
+                                            <orientation>LEFT</orientation>
+                                        </materialType>
+                                        <hasToilets>1</hasToilets>
+                                        <hasTables>1</hasTables>
+                                        <hasSecondClassOutlets>1</hasSecondClassOutlets>
+                                        <hasFirstClassOutlets>1</hasFirstClassOutlets>
+                                        <hasHeating>1</hasHeating>
+                                        <hasAirco>1</hasAirco>
+                                        <materialNumber>8112</materialNumber>
+                                        <tractionType>AM/MR</tractionType>
+                                        <canPassToNextUnit>0</canPassToNextUnit>
+                                        <standingPlacesSecondClass>27</standingPlacesSecondClass>
+                                        <standingPlacesFirstClass>9</standingPlacesFirstClass>
+                                        <seatsCoupeSecondClass>0</seatsCoupeSecondClass>
+                                        <seatsCoupeFirstClass>0</seatsCoupeFirstClass>
+                                        <seatsSecondClass>76</seatsSecondClass>
+                                        <seatsFirstClass>16</seatsFirstClass>
+                                        <lengthInMeter>27</lengthInMeter>
+                                        <hasSemiAutomaticInteriorDoors>1</hasSemiAutomaticInteriorDoors>
+                                        <hasLuggageSection>0</hasLuggageSection>
+                                        <materialSubTypeName>AM08M_c</materialSubTypeName>
+                                        <tractionPosition>1</tractionPosition>
+                                        <hasPrmSection>1</hasPrmSection>
+                                        <hasPriorityPlaces>1</hasPriorityPlaces>
+                                        <hasBikeSection>1</hasBikeSection>
+                                    </unit>
+                                    <unit id="1">
+                                        <materialType>
+                                            <parent_type>AM08M</parent_type>
+                                            <sub_type>b</sub_type>
+                                            <orientation>LEFT</orientation>
+                                        </materialType>
+                                        <hasToilets>0</hasToilets>
+                                        <hasTables>1</hasTables>
+                                        <hasSecondClassOutlets>1</hasSecondClassOutlets>
+                                        <hasFirstClassOutlets>1</hasFirstClassOutlets>
+                                        <hasHeating>1</hasHeating>
+                                        <hasAirco>1</hasAirco>
+                                        <materialNumber>8112</materialNumber>
+                                        <tractionType>AM/MR</tractionType>
+                                        <canPassToNextUnit>0</canPassToNextUnit>
+                                        <standingPlacesSecondClass>40</standingPlacesSecondClass>
+                                        <standingPlacesFirstClass>0</standingPlacesFirstClass>
+                                        <seatsCoupeSecondClass>0</seatsCoupeSecondClass>
+                                        <seatsCoupeFirstClass>0</seatsCoupeFirstClass>
+                                        <seatsSecondClass>104</seatsSecondClass>
+                                        <seatsFirstClass>0</seatsFirstClass>
+                                        <lengthInMeter>27</lengthInMeter>
+                                        <hasSemiAutomaticInteriorDoors>1</hasSemiAutomaticInteriorDoors>
+                                        <hasLuggageSection>0</hasLuggageSection>
+                                        <materialSubTypeName>AM08M_b</materialSubTypeName>
+                                        <tractionPosition>1</tractionPosition>
+                                        <hasPrmSection>0</hasPrmSection>
+                                        <hasPriorityPlaces>1</hasPriorityPlaces>
+                                        <hasBikeSection>0</hasBikeSection>
+                                    </unit>
+                                    <unit id="2">
+                                        <materialType>
+                                            <parent_type>AM08M</parent_type>
+                                            <sub_type>a</sub_type>
+                                            <orientation>RIGHT</orientation>
+                                        </materialType>
+                                        <hasToilets>0</hasToilets>
+                                        <hasTables>1</hasTables>
+                                        <hasSecondClassOutlets>1</hasSecondClassOutlets>
+                                        <hasFirstClassOutlets>1</hasFirstClassOutlets>
+                                        <hasHeating>1</hasHeating>
+                                        <hasAirco>1</hasAirco>
+                                        <materialNumber>8112</materialNumber>
+                                        <tractionType>AM/MR</tractionType>
+                                        <canPassToNextUnit>0</canPassToNextUnit>
+                                        <standingPlacesSecondClass>37</standingPlacesSecondClass>
+                                        <standingPlacesFirstClass>9</standingPlacesFirstClass>
+                                        <seatsCoupeSecondClass>0</seatsCoupeSecondClass>
+                                        <seatsCoupeFirstClass>0</seatsCoupeFirstClass>
+                                        <seatsSecondClass>68</seatsSecondClass>
+                                        <seatsFirstClass>16</seatsFirstClass>
+                                        <lengthInMeter>27</lengthInMeter>
+                                        <hasSemiAutomaticInteriorDoors>1</hasSemiAutomaticInteriorDoors>
+                                        <hasLuggageSection>0</hasLuggageSection>
+                                        <materialSubTypeName>AM08M_a</materialSubTypeName>
+                                        <tractionPosition>1</tractionPosition>
+                                        <hasPrmSection>0</hasPrmSection>
+                                        <hasPriorityPlaces>1</hasPriorityPlaces>
+                                        <hasBikeSection>0</hasBikeSection>
+                                    </unit>
+                                </units>
+                            </composition>
+                        </segment>
+                    </segments>
+                </composition>
+            </composition>
